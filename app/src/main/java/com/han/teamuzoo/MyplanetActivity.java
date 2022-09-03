@@ -38,8 +38,8 @@ public class MyplanetActivity extends AppCompatActivity {
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    int successed_count = 0;
-    int failed_count = 0;
+    int successed_count;
+    int failed_count;
 
 
     @Override
@@ -84,7 +84,7 @@ public class MyplanetActivity extends AppCompatActivity {
 
                     successed_count = response.body().getSuccessed_count();
 
-                    txtSuc.setText(successed_count );
+                    txtSuc.setText(""+successed_count );
 
                 }
             }
