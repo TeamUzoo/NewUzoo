@@ -123,9 +123,10 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(@Nullable CircularSeekBar circularSeekBar, float v, boolean b) {
                 Log.i("progress", "onProgressChanged");
 
-                float txtTiti = progressCircular.getProgress();
+                int txtTiti = (int) Math.round(progressCircular.getProgress());
 
-                txtTimer.setText(txtTiti + "");
+
+                txtTimer.setText(txtTiti + "분");
                 Log.i("progress", "" + progressCircular.getProgress());
                 Log.i("progress", "" + txtTiti);
 
@@ -145,39 +146,59 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 버튼 바꾸기 기능
                 btnStart.setVisibility(View.INVISIBLE);
                 btnCancel.setVisibility(View.VISIBLE);
-
-
+                startTimerTask();
 
                 // 프로그래스바 조절값에 따라 타이머뷰 바뀌는 부분
                 long duration = TimeUnit.MINUTES.toMillis((long) progressCircular.getProgress());
-                new CountDownTimer(duration, 1000) {
-                    @Override
-                    public void onTick(long l) {
-                        //When tick
-                        //Convert millisecond to minute and second
-                        String sDuration = String.format(Locale.ENGLISH, "%02d:%02d"
-                                , TimeUnit.MILLISECONDS.toMinutes(l)
-                                , TimeUnit.MILLISECONDS.toSeconds(l) -
-                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)));
-                        // Set converted string on text view
-                        txtTimer.setText(sDuration);
-                    }
 
-                    @Override
-                    public void onFinish() {
-                        txtTimer.setVisibility(View.GONE);
-                        Toast.makeText(getApplicationContext(),
-                                "타이머가 끝났습니다", Toast.LENGTH_LONG).show();
-                        // 이때 시간테이블에 완료했다는 데이터 넣기
-                    }
-                }.start();
+
+//                new CountDownTimer(duration, 1000) {
+//                    @Override
+//                    public void onTick(long l) {
+//                        //When tick
+//                        //Convert millisecond to minute and second
+//                        String sDuration = String.format(Locale.ENGLISH, "%02d:%02d"
+//                                , TimeUnit.MILLISECONDS.toMinutes(l)
+//                                , TimeUnit.MILLISECONDS.toSeconds(l) -
+//                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)));
+//                        // Set converted string on text view
+////                        txtTimer.setText(sDuration);
+//
+//                    }
+//
+//                    @Override
+//                    public void onFinish() {
+//                        txtTimer.setVisibility(View.GONE);
+//                        Toast.makeText(getApplicationContext(),
+//                                "타이머가 끝났습니다", Toast.LENGTH_LONG).show();
+//                        // 이때 시간테이블에 완료했다는 데이터 넣기
+//                        btnStart.setVisibility(View.VISIBLE);
+//                        btnCancel.setVisibility(View.INVISIBLE);
+//
+//                    }
+//                }.start();
                 // ↑↑↑↑↑ timer 관련 ↑↑↑↑↑ //
+
+
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnCancel.setVisibility(View.INVISIBLE);
+                btnStart.setVisibility(View.VISIBLE);
+                stopTimerTask();
+                txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
+
+
 
 
             }
@@ -334,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
     };
     registerReceiver(receiver, intentFilter);
 
-    startTimerTask();
+//    startTimerTask();
 }
 
     @Override
@@ -370,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
 
         timerTask = new TimerTask()
         {
-            int count = 60;
+            int count = (int) progressCircular.getProgress();
 
             @Override
             public void run()
@@ -383,25 +404,45 @@ public class MainActivity extends AppCompatActivity {
                 count--;
                 Log.i("aaa", count + "");
                 if(count == 0)
-                    timerTask.cancel();;
-//                textView.post(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        textView.setText(count + " 초");
-//                    }
-//                });
+                    timerTask.cancel();
+                    Log.i("aaaStop","카운트 = 0");
+                if(count <= 10){
+                    btnCancel.setVisibility(View.VISIBLE);
+                } else if ( count >= 10) {
+                    btnStop.setVisibility(View.VISIBLE);
+                    btnCancel.setVisibility(View.INVISIBLE);
+                }
+
+
+                txtTimer.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                txtTimer.setText(count + "분");
+
+                            }
+                        });
+                    }
+
+                });
             }
         };
-        timer.schedule(timerTask,0 ,1000);
+        timer.schedule(timerTask,0 ,60000);
     }
 
     private void stopTimerTask()
-    {
+    {   Toast.makeText(MainActivity.this, "타이머 종료2", Toast.LENGTH_SHORT).show();
+        Log.i("aaaStop", "타이머 스탑 111");
         if(timerTask != null)
         {
 //            textView.setText("60 초");
+            Toast.makeText(this, "타이머 스탑", Toast.LENGTH_LONG).show();
+            Log.i("aaaStop", "타이머 스탑 222");
             timerTask.cancel();
-            timerTask = null;
+//            timerTask = null;
+            
         }
     }
 
