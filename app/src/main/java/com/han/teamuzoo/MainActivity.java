@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -35,7 +34,6 @@ import com.han.teamuzoo.config.Config;
 import com.han.teamuzoo.model.UserRes;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnStart;
     Button btnCancel;
     Button btnStop;
+//    Button sheetButtonStart;
 
 
     TimerTask timerTask;
@@ -92,9 +91,13 @@ public class MainActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
         btnStop = findViewById(R.id.btnStop);
         btnStart = findViewById(R.id.btnStart);
+//        sheetButtonStart = findViewById(R.id.sheetButtonStart);
 
         // ↓↓↓↓↓ timer 함수 ↓↓↓↓↓ //
         txtTimer = findViewById(R.id.txtTimer);
+        txtTimer.setText( 30 + "분");
+
+
 
 
         // ↓↓↓↓↓ 로그인 관련 ↓↓↓↓↓ //
@@ -124,9 +127,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("progress", "onProgressChanged");
 
                 int txtTiti = (int) Math.round(progressCircular.getProgress());
-
-
                 txtTimer.setText(txtTiti + "분");
+
+
+
                 Log.i("progress", "" + progressCircular.getProgress());
                 Log.i("progress", "" + txtTiti);
 
@@ -145,18 +149,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 프로그래스바 조절값에 따라 타이머뷰 바뀌는 부분
+        long duration = TimeUnit.MINUTES.toMillis((long) progressCircular.getProgress());
+
+
+
 
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // 버튼 바꾸기 기능
                 btnStart.setVisibility(View.INVISIBLE);
                 btnCancel.setVisibility(View.VISIBLE);
                 startTimerTask();
 
-                // 프로그래스바 조절값에 따라 타이머뷰 바뀌는 부분
-                long duration = TimeUnit.MINUTES.toMillis((long) progressCircular.getProgress());
+
+
 
 
 //                new CountDownTimer(duration, 1000) {
@@ -190,17 +200,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 버튼 바꾸기 기능
                 btnCancel.setVisibility(View.INVISIBLE);
                 btnStart.setVisibility(View.VISIBLE);
                 stopTimerTask();
+
                 txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
 
+                // todo : 10초 이내 < 취소하는 API 연결
+
+            }
+        });
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 버튼 바꾸기 기능
+                btnStart.setVisibility(View.VISIBLE);
+                btnStop.setVisibility(View.INVISIBLE);
+                stopTimerTask();
+
+                txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
+                Log.i("aaaStop", "btnStop 타이머 포기");
 
 
 
+                //todo : 타이머 포기 API 연결
             }
         });
 
@@ -313,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
 
         // ↓↓↓↓↓ 동물선택창 팝업 관련 ↓↓↓↓↓ //
         bottomsheetstart = findViewById(R.id.bottomsheetStart);
+
         bottomsheetstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -324,11 +354,16 @@ public class MainActivity extends AppCompatActivity {
                                 R.layout.layout_button_sheet,
                                 (LinearLayout) findViewById(R.id.bottomSheetContainer)
                         );
-                bottomSheetView.findViewById(R.id.buttonStart).setOnClickListener(new View.OnClickListener() {
+                bottomSheetView.findViewById(R.id.sheetButtonStart).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(MainActivity.this, "Start...", Toast.LENGTH_LONG).show();
                         bottomSheetDialog.dismiss();
+                        btnStart.setVisibility(View.INVISIBLE);
+                        btnCancel.setVisibility(View.VISIBLE);
+                        startTimerTask();
+
+
                     }
                 });
                 bottomSheetDialog.setContentView(bottomSheetView);
@@ -405,8 +440,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("aaa", count + "");
                 if(count == 0)
                     timerTask.cancel();
-                    Log.i("aaaStop","카운트 = 0");
-                if(count <= 10){
+
+                if(count < 10){
                     btnCancel.setVisibility(View.VISIBLE);
                 } else if ( count >= 10) {
                     btnStop.setVisibility(View.VISIBLE);
@@ -421,7 +456,6 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 txtTimer.setText(count + "분");
-
                             }
                         });
                     }

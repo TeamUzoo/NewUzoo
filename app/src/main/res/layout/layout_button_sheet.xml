@@ -273,7 +273,7 @@
             app:riv_corner_radius="10dp" />
 
         <Button
-            android:id="@+id/buttonStart"
+            android:id="@+id/sheetButtonStart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
