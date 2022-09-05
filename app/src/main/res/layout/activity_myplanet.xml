@@ -51,9 +51,53 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/toolbar_myplanet" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#000000"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FF0000"
+                    android:fontFamily="@font/neodgm"
+                    android:text="일"
+                    android:textColor="#FFFFFFFF"
+                    app:cornerRadius="20dp" />
+
+                <Button
+                    android:id="@+id/btnWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FF0000"
+                    android:fontFamily="@font/neodgm"
+                    android:text="주"
+                    android:textColor="#FFFFFFFF"
+                    app:cornerRadius="20dp" />
+
+                <Button
+                    android:id="@+id/btnMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FF0000"
+                    android:fontFamily="@font/neodgm"
+                    android:text="월"
+                    android:textColor="#FFFFFFFF"
+                    app:cornerRadius="20dp" />
+
+                <Button
+                    android:id="@+id/btnYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FF0000"
+                    android:fontFamily="@font/neodgm"
+                    android:text="년"
+                    android:textColor="#FFFFFFFF"
+                    app:cornerRadius="20dp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtDate"
