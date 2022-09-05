@@ -83,18 +83,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
 
-    // LifeCycle
-    // todo : 스마트폰 자체 화면잠금에서 onPause로 넘어가는지 확인하기 !!
-    // >> API 23버전 이하에서는 활동이 일부 가려진 경우에도 활동의 상태를 실제로 저장한다.
-
-//    @Override
-//    protected  void onCreate(Bundle saveInstanceState) {
-//        super onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//
-//    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,14 +183,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        // todo : 시작/취소/중지 버튼 완료하기
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                CountDownTimer
-//            }
-//        });
 
 
         // ↓↓↓↓↓ SidePanel 관련 ↓↓↓↓↓ //
@@ -336,55 +316,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // ↑↑↑↑↑ 동물선택창 관련 ↑↑↑↑↑ //
-
-
-
-
-
-
-
-
-
-
-
-        // 차은우가 짠 코드 //
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
-//        intentFilter.addAction(Intent.ACTION_SCREEN_ON);
-//        intentFilter.addAction(Intent.ACTION_USER_BACKGROUND);
-//
-//        BroadcastReceiver screenOnOff = new BroadcastReceiver() {
-//
-//            public static final String ScreenOff = "android.intent.action.SCREEN_OFF";
-//            public static final String ScreenOn = "android.intent.action.SCREEN_ON";
-//            public static final String BackGround = "android.intent.action.USER_BACKGROUND";
-//            public static final String ForeGround = "android.intent.action.FOREGROUND";
-//
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                if (intent.getAction().equals(ScreenOff)) {
-//                    Log.i("aaa", "Screen Off");
-//
-//                } else if (intent.getAction().equals(ScreenOn)) {
-//                    Log.i("aaa", "Screen On");
-//
-//                } else if (intent.getAction().equals(BackGround)) {
-//                    Log.i("aaa", "BackGround");
-//
-//                } else if (intent.getAction().equals(ForeGround)) {
-//                    Log.i("aaa", "ForeGround");
-//                } else {
-//                    Log.e("aaa", "else 상황");
-//                }
-//
-//            }
-            // 차은우가 짠 코드
-
-
-        // 차은우가 짠 코드//
-
-//        registerReceiver(screenOnOff, intentFilter);
-//         차은우가 짠 코드
 
 
 

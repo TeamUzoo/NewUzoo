@@ -5,9 +5,33 @@ import java.io.Serializable;
 public class Follower implements Serializable {
 
     private int id;
-    private String txtName;
-    private int txtSuc;
-    private int txtDea;
+    private String name;
+    private int successed;
+    private int failed;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSuccessed() {
+        return successed;
+    }
+
+    public void setSuccessed(int successed) {
+        successed = successed;
+    }
+
+    public int getFailed() {
+        return failed;
+    }
+
+    public void setFailed(int failed) {
+        failed = failed;
+    }
 
     public int getId() {
         return id;
@@ -17,27 +41,5 @@ public class Follower implements Serializable {
         this.id = id;
     }
 
-    public String getTxtName() {
-        return txtName;
-    }
 
-    public void setTxtName(String txtName) {
-        this.txtName = txtName;
-    }
-
-    public int getTxtSuc() {
-        return txtSuc;
-    }
-
-    public void setTxtSuc(int txtSuc) {
-        this.txtSuc = txtSuc;
-    }
-
-    public int getTxtDea() {
-        return txtDea;
-    }
-
-    public void setTxtDea(int txtDea) {
-        this.txtDea = txtDea;
-    }
 }

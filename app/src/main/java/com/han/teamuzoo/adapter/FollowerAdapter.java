@@ -37,9 +37,9 @@ public class FollowerAdapter extends RecyclerView.Adapter<FollowerAdapter.ViewHo
     public void onBindViewHolder(@NonNull FollowerAdapter.ViewHolder holder, int position) {
         Follower follow = followList.get(position);
 
-        holder.txtSuc.setText(""+follow.getTxtSuc());
-        holder.txtDea.setText(""+follow.getTxtDea());
-        holder.txtName.setText(follow.getTxtName());
+        holder.txtSuc.setText(""+follow.getSuccessed());
+        holder.txtDea.setText(""+follow.getFailed());
+        holder.txtName.setText(follow.getName());
 
     }
 
