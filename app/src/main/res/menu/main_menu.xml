@@ -10,30 +10,35 @@
             android:menuCategory="container"
             android:title="Logout"
             app:showAsAction="always" />
-        <item android:id="@+id/nav_planet"
-            android:title="planet"
-            android:icon="@drawable/ic_android_black_24dp"/>
+        <item
+            android:id="@+id/nav_planet"
+            android:icon="@drawable/menu_myuni"
+            android:title="나의 우주" />
 
-        <item android:id="@+id/nav_list"
-            android:title="list"
-            android:icon="@drawable/ic_android_black_24dp"/>
+        <item
+            android:id="@+id/nav_list"
+            android:icon="@drawable/menu_list"
+            android:title="리스트" />
 
-        <item android:id="@+id/nav_follower"
-            android:title="follower"
-            android:icon="@drawable/ic_android_black_24dp"/>
+        <item
+            android:id="@+id/nav_follower"
+            android:icon="@drawable/menu_follower"
+            android:title="친구" />
 
-        <item android:id="@+id/nav_quest"
-            android:title="quest"
-            android:icon="@drawable/ic_android_black_24dp"/>
+        <item
+            android:id="@+id/nav_quest"
+            android:icon="@drawable/menu_quest"
+            android:title="업적" />
 
-        <item android:id="@+id/nav_shop"
-            android:title="shop"
-            android:icon="@drawable/ic_android_black_24dp"/>
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/menu_shop"
+            android:title="상점" />
 
-        <item android:id="@+id/nav_setting"
-            android:title="setting"
-            android:icon="@drawable/ic_android_black_24dp"/>
-
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/menu_setting"
+            android:title="설정" />
 
 
     </group>

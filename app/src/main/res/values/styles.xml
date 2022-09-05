@@ -1,12 +1,22 @@
 <resources>
 
-<style name = "bottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
-    <item name="bottomSheetStyle">@style/bottomSheetStyle</item>
-</style>
+    <style name = "bottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyle</item>
+    </style>
 
     <style name = "bottomSheetStyle" parent = "Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name = "MyItemFont" parent = "android:Widget.TextView">
+        <item name = "android:fontFamily" > @font/neodgm </item>
+    </style>
+
+<!--    <style name = "MenuBackground" parent = "android:itemBackground">-->
+<!--        <item name="android:background"> @color/purple_200 </item>-->
+<!--    </style>-->
+
+
 
 
 </resources>

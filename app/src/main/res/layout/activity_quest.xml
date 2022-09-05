@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00ff0000"
-            android:src="@drawable/icon_del" />
+            android:src="@drawable/icon_back" />
 
         <TextView
             android:id="@+id/txtTitle"

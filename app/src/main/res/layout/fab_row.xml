@@ -4,42 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:fabSize="normal">
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
+        android:layout_marginRight="15sp"
         android:layout_marginBottom="160dp"
-        android:layout_marginRight="15sp"
+        android:bottomLeftRadius="15dp"
+        android:bottomRightRadius="15dp"
         android:src="@drawable/icon_plus"
-        android:visibility="invisible"
-        app:backgroundTint="#B291F8"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        app:backgroundTint="#ffffff"
         app:elevation="6dp"
-        app:pressedTranslationZ="12dp" />
+        app:pressedTranslationZ="12dp"
+        app:useCompatPadding="true"
+        app:layout_constrainBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="90dp"
         android:layout_marginRight="15sp"
+        android:layout_marginBottom="90dp"
         android:src="@drawable/icon_edit"
-        android:visibility="invisible"
         app:backgroundTint="#ffffff"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="15sp"
-        android:backgroundTint="#ffffff"
-        android:src="@drawable/icon_x" />
+        android:backgroundTint="#B291F8"
+        android:src="@drawable/ic_add" />
 
 </FrameLayout>
