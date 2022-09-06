@@ -105,7 +105,7 @@ public class MyplanetActivity extends AppCompatActivity {
         }));
 
         // 내가 실패한 횟수
-        Call<ResultRes> call2 = api.getResultSuc("Bearer "+accessToken);
+        Call<ResultRes> call2 = api.getResultFail("Bearer "+accessToken);
 
         call2.enqueue((new Callback<ResultRes>() {
             @Override
