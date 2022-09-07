@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/GitHub/NewUzoo/app/src/main/res/layout/activity_myplanet.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/yooon/AndroidStudioProjects/TeamUzoo/app/src/main/res/drawable-v24/ic_add.xml" value="0.1" />
         <entry key="..\:/Users/yooon/AndroidStudioProjects/TeamUzoo/app/src/main/res/layout/acitivity_quest.xml" value="0.1" />
         <entry key="..\:/Users/yooon/AndroidStudioProjects/TeamUzoo/app/src/main/res/layout/activity_follower.xml" value="0.24947916666666667" />
@@ -33,31 +32,6 @@
         <entry key="..\:/Users/yooon/AndroidStudioProjects/TeamUzoo/app/src/main/res/layout/toolbar_myplanet.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/yooon/Documents/GitHub/NewUzoo/app/src/main/res/layout/activity_follower.xml" value="0.1" />
         <entry key="..\:/Users/yooon/Documents/GitHub/NewUzoo/app/src/main/res/layout/activity_follower2.xml" value="0.1" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/drawable/border.xml" value="0.115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_bottom_sheet.xml" value="0.25885416666666666" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_bottom_sheet2.xml" value="0.1" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_follower.xml" value="0.1" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_list.xml" value="0.25226449275362317" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_login.xml" value="0.25226449275362317" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_main.xml" value="0.22644927536231885" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_myplanet.xml" value="0.17980072463768115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_popup_quest.xml" value="0.17980072463768115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_popup_shop.xml" value="0.17980072463768115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_quest.xml" value="0.16530797101449277" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/activity_rekog.xml" value="0.25885416666666666" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/fab_row.xml" value="0.16530797101449277" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/follower_row.xml" value="0.264" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/header_menu.xml" value="0.24728260869565216" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/layout_button_sheet.xml" value="0.17980072463768115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/list_row.xml" value="0.24728260869565216" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/mypet_row.xml" value="0.1" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/myplanet_row.xml" value="0.4" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/quest_row.xml" value="0.16530797101449277" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/rank_row.xml" value="0.16530797101449277" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/shop_row.xml" value="0.16530797101449277" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/layout/toolbar_myplanet.xml" value="0.17980072463768115" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/menu/main_menu.xml" value="0.1" />
-        <entry key="..\:/eroel/NewUzoo/app/src/main/res/menu/toolbar_myplanet.xml" value="0.159375" />
         <entry key="..\:/eroel/TeamUzoo/app/src/main/res/drawable/ic_logout.xml" value="0.1" />
         <entry key="..\:/eroel/TeamUzoo/app/src/main/res/layout/acitivity_quest.xml" value="0.14990942028985507" />
         <entry key="..\:/eroel/TeamUzoo/app/src/main/res/layout/activity_follower.xml" value="0.2" />

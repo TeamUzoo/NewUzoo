@@ -2,7 +2,6 @@ package com.han.teamuzoo.model;
 
 public class ResultRes {
 
-
     private String result;
     private int successed_count;
     private int failed_count;

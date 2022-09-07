@@ -11,13 +11,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.han.teamuzoo.api.NetworkClient;
+import com.han.teamuzoo.api.TimerApi;
 import com.han.teamuzoo.api.myPlanetApi;
 import com.han.teamuzoo.config.Config;
 import com.han.teamuzoo.model.ResultRes;
+import com.han.teamuzoo.model.TimerRes;
 
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -191,24 +198,60 @@ public class MyplanetActivity extends AppCompatActivity {
             }
         });
 
+        // 그래프 사용 코드(리사이클러뷰 사용해야됨
+        //초기화
+        BarChart barChart = findViewById(R.id.bar_chart);
+
+        //1. 데이터 생성
+        BarDataSet barDataSet1 = new BarDataSet(data1(), "Data1");
+
+        //2. 바 데이터 생성
+        BarData barData = new BarData();
+
+        //3. 바 데이터에 데이터셋 추가
+        barData.addDataSet(barDataSet1);
+
+        //4. 바차트에 바데이터 등록
+        barChart.setData(barData);
 
 
-//      툴바 기능 구현
-        // 추가된 소스, Toolbar 를 생성한다.
-//        toolbar = (Toolbar) findViewById(R.id.chtl_toolbar);
-//        setSupportActionBar(toolbar);
-//        class Problems extends AppCompatActivity {
-//            @Override
-//            protected void onCreate(Bundle savedInstanceState) {
-//                super.onCreate(savedInstanceState);
-//                setContentView(R.layout.activity_myplanet);
-//                LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                View v = inflator.inflate(R.layout.toolbar_myplanet, null);
-//                getSupportActionBar().setCustomView(v);
-//            }
-//        }
     }
 
+    // 그래프 함수
+    private ArrayList<BarEntry> data1(){
+
+        ArrayList<BarEntry> dataList = new ArrayList<>();
+
+        // 타임 리스트 받아오기
+        Retrofit retrofit = NetworkClient.getRetrofitClient(MyplanetActivity.this);
+        TimerApi api = retrofit.create(TimerApi.class);
+
+        SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+        String accessToken = sp.getString("accessToken", "");
+
+        Call<TimerRes> call = api.getTotalTimeToday("Bearer "+accessToken);
+
+        call.enqueue((new Callback<TimerRes>() {
+            @Override
+            public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
+                if(response.isSuccessful()){
+                    time_list = response.body().getTime_list();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<TimerRes> call, Throwable t) {
+            }
+        }));
+
+        for (int i = 0; i < 24; i++) {
+            dataList.add(new BarEntry(i, (float) (Math.random())));
+//            dataList.add(new BarEntry(i, 리스트[i]);
+
+        }
+
+        return dataList;
+    }
     // 버튼 눌렀을 때, 배경 하얀색 되게 설정하는 함수
     private Button turnWhite(Button btn){
 
