@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".BottomSheet"
+            android:exported="false" />
+        <activity
             android:name=".PopupShopActivity"
             android:exported="false" />
         <activity
@@ -53,7 +56,6 @@
         <activity
             android:name=".ShopListActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -28,9 +28,12 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.navigation.NavigationView;
+import com.han.teamuzoo.api.MyPetApi;
 import com.han.teamuzoo.api.NetworkClient;
 import com.han.teamuzoo.api.UserApi;
 import com.han.teamuzoo.config.Config;
+import com.han.teamuzoo.model.MyPet;
+import com.han.teamuzoo.model.MyPetList;
 import com.han.teamuzoo.model.UserRes;
 
 import java.util.List;
@@ -53,11 +56,15 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
     ImageView bottomsheetstart;
+    Button iconMenu;
     Intent intent;
     ImageView btnStart;
     ImageView btnCancel;
     ImageView btnStop;
 //    Button sheetButtonStart;
+    /* test */
+    Button testbutton;
+    /* test */
 
 
     TimerTask timerTask;
@@ -74,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     @Override // 사이드판넬 관련 //
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            Log.i("aaa", "drawer toggle on clicked");
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -87,6 +95,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        testbutton = findViewById(R.id.testbutton);
+        testbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BottomSheet.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         btnCancel = findViewById(R.id.btnCancel);
         btnStop = findViewById(R.id.btnStop);
@@ -238,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
         // ↓↓↓↓↓ SidePanel 관련 ↓↓↓↓↓ //
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.menu_open, R.string.menu_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -247,6 +267,8 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                Log.i("aaa", "drawer toggle on clicked11");
 
                 switch (item.getItemId()) {
 
@@ -343,17 +365,20 @@ public class MainActivity extends AppCompatActivity {
         // ↓↓↓↓↓ 동물선택창 팝업 관련 ↓↓↓↓↓ //
         bottomsheetstart = findViewById(R.id.bottomsheetStart);
 
+
         bottomsheetstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         MainActivity.this, R.style.bottomSheetDialogTheme
                 );
                 View bottomSheetView = LayoutInflater.from(getApplicationContext())
                         .inflate(
-                                R.layout.layout_button_sheet,
+                                R.layout.activity_bottom_sheet,
                                 (LinearLayout) findViewById(R.id.bottomSheetContainer)
                         );
+
                 bottomSheetView.findViewById(R.id.sheetButtonStart).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -366,6 +391,10 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
+
+
+
                 bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
             }
@@ -441,9 +470,11 @@ public class MainActivity extends AppCompatActivity {
                 if(count == 0)
                     timerTask.cancel();
 
-                if(count < 10){
-                    btnCancel.setVisibility(View.VISIBLE);
-                } else if ( count >= 10) {
+                if(count <= count - 10){
+                    btnCancel.setVisibility(View.INVISIBLE);
+                } else if ( count > count - 10) {
+
+                    // handler postin
                     btnStop.setVisibility(View.VISIBLE);
                     btnCancel.setVisibility(View.INVISIBLE);
                 }
@@ -463,7 +494,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         };
-        timer.schedule(timerTask,0 ,60000);
+        timer.schedule(timerTask,0 ,1000);
+        // period 60000으로 하기, 1000은 테스트용
     }
 
     private void stopTimerTask()
@@ -480,7 +512,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // 교수님이 짜주신 코드
+
+
+
+
+
 
 
 }
