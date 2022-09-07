@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#00ff0000"
-                android:src="@drawable/icon_del" />
+                android:src="@drawable/icon_back" />
 
             <TextView
                 android:id="@+id/txtTitle"
@@ -83,18 +83,49 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fb_add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:clickable="false"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="#B291F8"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="48dp"
-        app:tint="@color/white" />
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/white"
+        app:maxImageSize="28dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb_edit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/fb_add_btn"
+        app:layout_constraintEnd_toEndOf="@+id/fb_add_btn"
+        app:srcCompat="@drawable/ic_edit"
+        app:tint="#323232"
+        app:maxImageSize="28dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/fb_edit_btn"
+        app:layout_constraintEnd_toEndOf="@+id/fb_edit_btn"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="#323232"
+        app:maxImageSize="28dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     ImageView bottomsheetstart;
     Intent intent;
-    Button btnStart;
-    Button btnCancel;
-    Button btnStop;
+    ImageView btnStart;
+    ImageView btnCancel;
+    ImageView btnStop;
 //    Button sheetButtonStart;
 
 

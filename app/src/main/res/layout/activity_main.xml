@@ -110,46 +110,38 @@
                 app:cs_start_angle="360"
                 app:cs_use_custom_radii="false" />
 
-            <Button
-                android:id="@+id/btnStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="#B291F8"
-                android:fontFamily="@font/neodgm"
-                android:text="시작"
-                android:textSize="18sp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp">
 
-            <android.widget.Button
-                android:id="@+id/btnStop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_round"
-                android:backgroundTint="@null"
-                android:fontFamily="@font/neodgm"
-                android:text="포기"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textSize="18sp"
-                android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/btnStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="시작"
+                    android:textSize="18sp"
+                    app:srcCompat="@drawable/btn_start" />
 
-            <android.widget.Button
-                android:id="@+id/btnCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_round"
-                android:backgroundTint="@null"
-                android:fontFamily="@font/neodgm"
-                android:text="취소"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textSize="18sp"
-                android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/btnStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="포기"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/btn_stop" />
+
+                <ImageView
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="취소"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/btn_cancel" />
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -157,6 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:paddingRight="50dp">
 

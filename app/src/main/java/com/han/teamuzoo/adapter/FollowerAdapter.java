@@ -55,7 +55,7 @@ public class FollowerAdapter extends RecyclerView.Adapter<FollowerAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            folRecyclerView = itemView.findViewById(R.id.fab);
+            folRecyclerView = itemView.findViewById(R.id.fb_add_btn);
             txtSuc = itemView.findViewById(R.id.txtSuc);
             txtDea = itemView.findViewById(R.id.txtDea);
             txtName = itemView.findViewById(R.id.txtName);
