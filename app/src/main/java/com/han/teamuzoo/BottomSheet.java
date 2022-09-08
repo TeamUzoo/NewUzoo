@@ -2,6 +2,7 @@ package com.han.teamuzoo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,17 +10,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.han.teamuzoo.adapter.FollowerAdapter;
 import com.han.teamuzoo.adapter.MyPetAdapter;
-import com.han.teamuzoo.api.FollowerApi;
 import com.han.teamuzoo.api.MyPetApi;
 import com.han.teamuzoo.api.NetworkClient;
-import com.han.teamuzoo.api.myPlanetApi;
 import com.han.teamuzoo.config.Config;
-import com.han.teamuzoo.model.FollowerList;
 import com.han.teamuzoo.model.MyPet;
 import com.han.teamuzoo.model.MyPetList;
-import com.han.teamuzoo.model.ResultRes;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
@@ -52,9 +48,9 @@ public class BottomSheet extends AppCompatActivity {
 
         Log.i("aaa","바텀시트 oncreate");
 
-        recyclerView = findViewById(R.id.mprecyclerview);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(BottomSheet.this));
+        recyclerView.setLayoutManager(new GridLayoutManager(BottomSheet.this,5));
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -107,7 +103,7 @@ public class BottomSheet extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     count = response.body().getCount();
-                    myPetList.addAll(response.body().getPets());
+                    myPetList.addAll(response.body().getItems());
                     offset = offset + count;
                     adapter = new MyPetAdapter(BottomSheet.this, myPetList);
                     recyclerView.setAdapter(adapter);
@@ -145,7 +141,7 @@ public class BottomSheet extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     count = response.body().getCount();
-                    myPetList.addAll(response.body().getPets());
+                    myPetList.addAll(response.body().getItems());
 
                     offset = offset + count;
 

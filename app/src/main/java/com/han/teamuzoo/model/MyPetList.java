@@ -4,16 +4,16 @@ import java.util.List;
 
 public class MyPetList {
 
-    private String reuslt;
+    private String result;
     private int count;
-    private List<MyPet> pets;
+    private List<MyPet> items;
 
-    public String getReuslt() {
-        return reuslt;
+    public String getResult() {
+        return result;
     }
 
-    public void setReuslt(String reuslt) {
-        this.reuslt = reuslt;
+    public void setResult(String result) {
+        this.result = result;
     }
 
     public int getCount() {
@@ -24,11 +24,11 @@ public class MyPetList {
         this.count = count;
     }
 
-    public List<MyPet> getPets() {
-        return pets;
+    public List<MyPet> getItems() {
+        return items;
     }
 
-    public void setPets(List<MyPet> pets) {
-        this.pets = pets;
+    public void setItems(List<MyPet> items) {
+        this.items = items;
     }
 }

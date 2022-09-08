@@ -40,12 +40,11 @@ public class MyPetAdapter extends RecyclerView.Adapter<MyPetAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull MyPetAdapter.ViewHolder holder, int position) {
         MyPet myPet = myPetList.get(position);
 
-        holder.txtPetName.setText(myPet.getPet_name());
+        holder.txtPetName.setText(myPet.getPetName());
 
         Glide.with(context).load(Config.IMAGE_URL+myPet.getPetUrl() )
                 .placeholder(R.drawable.ic_pet)
                 .into(  holder.roundedImageView  );
-
     }
 
     @Override
@@ -54,12 +53,15 @@ public class MyPetAdapter extends RecyclerView.Adapter<MyPetAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        RoundedImageView roundedImageView;
+        RecyclerView recyclerView;
         TextView txtPetName;
+        RoundedImageView roundedImageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            roundedImageView = itemView.findViewById(R.id.imagePet);
+            recyclerView = itemView.findViewById(R.id.recyclerView);
+
+            roundedImageView = itemView.findViewById(R.id.roundedImageView);
             txtPetName = itemView.findViewById(R.id.txtPetName);
 
 

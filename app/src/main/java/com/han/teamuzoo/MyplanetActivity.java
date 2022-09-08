@@ -168,7 +168,7 @@ public class MyplanetActivity extends AppCompatActivity {
              public void onClick(View view) {
                  // 날짜 변경
                  txtDate.setText(getTimeMonth());
-                 
+
                  // 버튼 표시
                  turnBlack(btnDay);
                  turnBlack(btnWeek);
@@ -207,7 +207,8 @@ public class MyplanetActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
                 if(response.isSuccessful()){
-                    time_list = response.body().getTime_list();
+
+                   time_list = response.body().getTime_list();
 
                 }
             }
@@ -235,6 +236,18 @@ public class MyplanetActivity extends AppCompatActivity {
         //4. 바차트에 바데이터 등록
         barChart.setData(barData);
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("check", "onPause 실행됨");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("check", "onStop 실행됨");
     }
 
     // 그래프 함수
@@ -289,7 +302,7 @@ public class MyplanetActivity extends AppCompatActivity {
 //        return array;
 //
 //    }
-    
+
     // 오늘 날짜 표시하는 함수(년,월,일)
     private String getTimeToday(){
         dNow = System.currentTimeMillis();
