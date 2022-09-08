@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,7 +40,6 @@ public class MyplanetActivity extends AppCompatActivity {
     ImageView iconDel;
     ImageView iconShare;
     ImageView imgPlanet;
-    Toolbar toolbar;
     TextView txtDate;
     TextView txtSuc;
     TextView txtDea;
@@ -56,11 +56,10 @@ public class MyplanetActivity extends AppCompatActivity {
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy년 MM월");
     SimpleDateFormat yFormat = new SimpleDateFormat("yyyy년");
 
-
-
     int successed_count;
     int failed_count;
 
+    ArrayList<Integer> time_list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +160,6 @@ public class MyplanetActivity extends AppCompatActivity {
                  turnBlack(btnYear);
 
                  //todo 리싸이클러뷰 표시
-                 
              }
          }));
 
@@ -178,7 +176,6 @@ public class MyplanetActivity extends AppCompatActivity {
                  turnBlack(btnYear);
 
                  //todo 리싸이클러뷰 표시
-
              }
          });
 
@@ -197,6 +194,30 @@ public class MyplanetActivity extends AppCompatActivity {
                 turnWhite(btnYear);
             }
         });
+        // 타임 리스트 받아오기
+//        Retrofit retrofit = NetworkClient.getRetrofitClient(MyplanetActivity.this);
+        TimerApi api2 = retrofit.create(TimerApi.class);
+
+//        SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+//        String accessToken = sp.getString("accessToken", "");
+
+        Call<TimerRes> call3 = api2.getTotalTimeToday("Bearer "+accessToken);
+
+        call3.enqueue((new Callback<TimerRes>() {
+            @Override
+            public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
+                if(response.isSuccessful()){
+                    time_list = response.body().getTime_list();
+
+                }
+            }
+            @Override
+            public void onFailure(Call<TimerRes> call, Throwable t) {
+            }
+        }));
+
+
+        Log.i("check","time_list : " +time_list );
 
         // 그래프 사용 코드(리사이클러뷰 사용해야됨
         //초기화
@@ -214,7 +235,6 @@ public class MyplanetActivity extends AppCompatActivity {
         //4. 바차트에 바데이터 등록
         barChart.setData(barData);
 
-
     }
 
     // 그래프 함수
@@ -222,36 +242,20 @@ public class MyplanetActivity extends AppCompatActivity {
 
         ArrayList<BarEntry> dataList = new ArrayList<>();
 
-        // 타임 리스트 받아오기
-        Retrofit retrofit = NetworkClient.getRetrofitClient(MyplanetActivity.this);
-        TimerApi api = retrofit.create(TimerApi.class);
+        Log.i("check","그래프 함수 실행됨");
 
-        SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
-        String accessToken = sp.getString("accessToken", "");
-
-        Call<TimerRes> call = api.getTotalTimeToday("Bearer "+accessToken);
-
-        call.enqueue((new Callback<TimerRes>() {
-            @Override
-            public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
-                if(response.isSuccessful()){
-                    time_list = response.body().getTime_list();
-
-                }
-            }
-            @Override
-            public void onFailure(Call<TimerRes> call, Throwable t) {
-            }
-        }));
-
+        // 그래프 만들기
         for (int i = 0; i < 24; i++) {
-            dataList.add(new BarEntry(i, (float) (Math.random())));
+            dataList.add(new BarEntry(i, 5));
+
+//            dataList.add(new BarEntry(i, time_list.get(i)));
 //            dataList.add(new BarEntry(i, 리스트[i]);
 
         }
 
         return dataList;
     }
+
     // 버튼 눌렀을 때, 배경 하얀색 되게 설정하는 함수
     private Button turnWhite(Button btn){
 
@@ -285,9 +289,7 @@ public class MyplanetActivity extends AppCompatActivity {
 //        return array;
 //
 //    }
-
-
-
+    
     // 오늘 날짜 표시하는 함수(년,월,일)
     private String getTimeToday(){
         dNow = System.currentTimeMillis();
