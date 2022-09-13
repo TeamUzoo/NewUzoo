@@ -91,7 +91,7 @@
 
                 android:layout_gravity="center"
                 app:cs_circle_color="#8E46E3"
-                app:cs_circle_progress_color="#C266A3"
+                app:cs_circle_progress_color="#ED8ACC"
                 app:cs_circle_stroke_width="25dp"
                 app:cs_circle_style="round"
                 app:cs_circle_x_radius="0dp"
@@ -107,7 +107,7 @@
                 app:cs_negative_enabled="false"
                 app:cs_pointer_alpha_ontouch="30"
                 app:cs_pointer_angle="6"
-                app:cs_pointer_color="@color/purple_200"
+                app:cs_pointer_color="#EEE0FF"
                 app:cs_pointer_halo_color="@color/purple_500"
                 app:cs_pointer_halo_color_ontouch="@color/purple_200"
                 app:cs_pointer_stroke_width="20dp"
@@ -179,6 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
+                android:onClick="OnClickHandler"
                 android:text="다이얼로그"/>
 
         </LinearLayout>

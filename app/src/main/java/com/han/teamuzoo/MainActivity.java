@@ -3,6 +3,7 @@ package com.han.teamuzoo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -12,6 +13,7 @@ import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 //    Button sheetButtonStart;
     /* test */
     Button testbutton;
+    Button btn_dialog;
     /* test */
 
 
@@ -97,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        btn_dialog = findViewById(R.id.btn_dialog);
         testbutton = findViewById(R.id.testbutton);
         testbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -430,6 +435,15 @@ public class MainActivity extends AppCompatActivity {
 
 //    startTimerTask();
 }
+
+// 알러트 다이얼로그 코드
+public void OnClickHandler(View view) {
+    CustomDialog dialog = new CustomDialog(this);
+    dialog.callDialog();
+}
+
+
+
 
     @Override
     protected void onPause() {
