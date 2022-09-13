@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnStart;
     ImageView btnCancel;
     ImageView btnStop;
+    ImageView imgLeft;
 //    Button sheetButtonStart;
     /* test */
     Button testbutton;
@@ -106,6 +107,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        imgLeft = findViewById(R.id.imgLeft);
+        imgLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RekogActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnCancel = findViewById(R.id.btnCancel);
         btnStop = findViewById(R.id.btnStop);

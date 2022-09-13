@@ -21,8 +21,8 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +47,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import okhttp3.MediaType;
@@ -60,13 +61,17 @@ import retrofit2.Retrofit;
 
 public class RekogActivity extends AppCompatActivity {
 
-    Button btnCamera;
-    Button btnRekog;
+    ImageView imgCamera;
+    ImageView imgRekog;
     ImageView imgBack;
 
     ImageView imageView;
 
-    private ProgressDialog dialog;
+    TextView txtResult;
+
+    ArrayList<String> strResult= new ArrayList<>();
+
+
 
     // 사진관련된 변수들
     private File photoFile;
@@ -79,22 +84,26 @@ public class RekogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rekog);
 
-        btnCamera = findViewById(R.id.btnCamera);
+        Log.i("check","rekog Activity 호출됨");
 
-        btnRekog = findViewById(R.id.btnRekog);
+        imgCamera = findViewById(R.id.imgCamera);
+
+        imgRekog = findViewById(R.id.imgRekog);
         imageView = findViewById(R.id.imageView);
         imgBack = findViewById(R.id.imgBack);
+        txtResult = findViewById(R.id.txtResult);
 
         // 화살표 버튼 누르면 MainActivity
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("check","Back 버튼 호출됨");
                 finish();
             }
         });
 
         // 카메라 구현
-        btnCamera.setOnClickListener(new View.OnClickListener() {
+        imgCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("check","Camera 버튼 실행됨");
@@ -111,95 +120,91 @@ public class RekogActivity extends AppCompatActivity {
             }
         });
 
-        // 분석
-        btnRekog.setOnClickListener(new View.OnClickListener() {
+         // 분석
+        imgRekog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Log.i("check","rekognition 버튼 눌러짐");
+
                 // API 호출
-
                 if (photoFile == null) {
-
                     Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
-
                     return;
 
                 }
 
-//                String content = editContent.getText().toString().trim();
-//
-//                if (content.isEmpty()) {
-//                    Toast.makeText(AddActivity.this, "내용을 입력하세요", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-
                 Retrofit retrofit = NetworkClient.getRetrofitClient(RekogActivity.this);
-
                 RekognitionApi api = retrofit.create(RekognitionApi.class);
+                Log.i("check","retrofit 호출 됨");
+
 
                 // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
                 RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
 
                 MultipartBody.Part photo = MultipartBody.Part.createFormData("photo",  // 키값
                         photoFile.getName(), fileBody);
-
-//                // 멀티파트로로 텍스트를 보내는경우 파라미터 보내는 방법
-//                RequestBody contentBody = RequestBody.create(content, MediaType.parse("text/plain"));
+                Log.i("check","파일 파라미터 만듬");
 
                 // 헤더에 들어갈 억세스토큰 가져온다.
-
                 SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
 
                 String accessToken = sp.getString("accessToken", "");
 
                 Call<RekogRes> call = api.rekognition("Bearer " + accessToken, photo);
+                Log.i("check","API 호출 중");
 
-                showProgress("포스팅 하는중입니다.");
+
+                // 성공하면, 파일을 업로드 하고, 그 파일을 S3에 저장하고,
 
                 call.enqueue(new Callback<RekogRes>() {
-
                     @Override
-
                     public void onResponse(Call<RekogRes> call, Response<RekogRes> response) {
-
-                        dismissProgress();
-
                         if (response.isSuccessful()) {
-
                             Toast.makeText(RekogActivity.this, "업로드가 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                            finish();
+                            Log.i("check","rekognition 분석됨");
+
+                            strResult = response.body().getDetected_labels();
+                            txtResult.setText(""+strResult);
 
                         } else {
                         }
                     }
 
                     @Override
-
                     public void onFailure(Call<RekogRes> call, Throwable t) {
-
-                        dismissProgress();
+                        Log.i("check","API 호출 실패");
+//                        dismissProgress();
                     }
                 });
+                Log.i("check","호출 과정 건너뜀");
+
+
             }
         });
 
+        // Todo 우리가 지정한 키워드와 맞는지 확인하고, 키워드가 맞으면, 개당 코인 추가
+
+
+
             }
 
-
-    // 다이얼로그 만드는 함수
-
-    void showProgress(String message) {
-
-        dialog = new ProgressDialog(RekogActivity.this);
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage(message);
-        dialog.show();
-
-    }
-
-
-    void dismissProgress() {
-        dialog.dismiss();
-    }
+//
+//    // 다이얼로그 만드는 함수
+//
+//    void showProgress(String message) {
+//
+//        dialog = new ProgressDialog(RekogActivity.this);
+//        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        dialog.setMessage(message);
+//        dialog.show();
+//
+//    }
+//
+//
+//    void dismissProgress() {
+//        dialog.dismiss();
+//    }
 
 
     // 알러트 다이얼로그 띄우는 함수
@@ -216,10 +221,11 @@ public class RekogActivity extends AppCompatActivity {
                     // TODO: 사진찍은 코드 실행
                     camera();
 
-                } else if (i == 1){
-                    // TODO: 앨범에서 사진 가져오는 코드 실행
-                    album();
                 }
+//                else if (i == 1){
+//                    // TODO: 앨범에서 사진 가져오는 코드 실행
+//                    album();
+//                }
             }
         });
 
@@ -229,7 +235,8 @@ public class RekogActivity extends AppCompatActivity {
     }
 
 
-//    // 권한 확인
+// 권한 확인
+
 //    public void checkPermission() {
 //        int permissionCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
 //        int permissionRead = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -307,6 +314,7 @@ public class RekogActivity extends AppCompatActivity {
 
 
     }
+
     private File getPhotoFile(String fileName) {
         File storageDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         try{
@@ -324,6 +332,7 @@ public class RekogActivity extends AppCompatActivity {
             requestPermission();
         }
     }
+
     private void requestPermission() {
         if(ActivityCompat.shouldShowRequestPermissionRationale(RekogActivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)){
@@ -460,7 +469,6 @@ public class RekogActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 
     public static Bitmap rotateBitmap(Bitmap bitmap, int orientation) {
 

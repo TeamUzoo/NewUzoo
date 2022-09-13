@@ -1,17 +1,19 @@
 package com.han.teamuzoo.model;
 
-public class RekogRes {
-    private String detected_labels;
+import java.util.ArrayList;
 
-    public String getDetected_labels() {
+public class RekogRes {
+    private ArrayList<String> detected_labels;
+
+    public ArrayList<String> getDetected_labels() {
         return detected_labels;
     }
 
-    public void setDetected_labels(String detected_labels) {
+    public void setDetected_labels(ArrayList<String> detected_labels) {
         this.detected_labels = detected_labels;
     }
 
-    public RekogRes(String detected_labels) {
+    public RekogRes(ArrayList<String> detected_labels) {
         this.detected_labels = detected_labels;
     }
 }
