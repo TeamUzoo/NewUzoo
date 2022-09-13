@@ -2,7 +2,6 @@ package com.han.teamuzoo;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,9 +32,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.han.teamuzoo.api.AchivementApi;
 import com.han.teamuzoo.api.NetworkClient;
 import com.han.teamuzoo.api.RekognitionApi;
 import com.han.teamuzoo.config.Config;
+import com.han.teamuzoo.model.AchiveRes;
+import com.han.teamuzoo.model.GetCoin;
 import com.han.teamuzoo.model.RekogRes;
 
 import org.apache.commons.io.IOUtils;
@@ -75,6 +77,8 @@ public class RekogActivity extends AppCompatActivity {
     ArrayList<String> strDetected= new ArrayList<>(Arrays.asList("Computer","Pen","Eraser","Book","Desk"));
 
     int i;
+
+    int realAddedCoin;
 
 
     // 사진관련된 변수들
@@ -135,11 +139,14 @@ public class RekogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Retrofit retrofit = NetworkClient.getRetrofitClient(RekogActivity.this);
+                RekognitionApi api = retrofit.create(RekognitionApi.class);
+                Log.i("check","retrofit 호출 됨");
+
                 if(i == 1){
                     Toast.makeText(RekogActivity.this, "다시 촬영해주세요", Toast.LENGTH_SHORT).show();
                     
                 } else{
-
                 Log.i("check","rekognition 버튼 눌러짐");
 
                 // API 호출
@@ -147,10 +154,6 @@ public class RekogActivity extends AppCompatActivity {
                     Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                Retrofit retrofit = NetworkClient.getRetrofitClient(RekogActivity.this);
-                RekognitionApi api = retrofit.create(RekognitionApi.class);
-                Log.i("check","retrofit 호출 됨");
 
                 // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
                 RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
@@ -186,17 +189,9 @@ public class RekogActivity extends AppCompatActivity {
                             strDetected.retainAll(strResult);
                             Log.i("check","중복된 값은 "+ strDetected.toString());
 
-                            txtCoin.setText(strDetected.toString().size() + "개의 키워드가 맞았습니다.해당 갯수만큼 코인이 추가됩니다.");
-
-                            // Todo 코인 추가하는 API 추가하기.
-
-
-
-
                         } else {
                         }
                     }
-
                     @Override
                     public void onFailure(Call<RekogRes> call, Throwable t) {
                         Log.i("check","API 호출 실패");
@@ -204,8 +199,37 @@ public class RekogActivity extends AppCompatActivity {
                     }
                 });
                 Log.i("check","호출 과정 건너뜀");
-                
-                // i 추가하기 위함
+
+                realAddedCoin = strDetected.toString().length() * 2;
+
+                GetCoin addedCoin = new GetCoin(realAddedCoin);
+                Call<AchiveRes> call2 = addedCoin.addCoin(addedCoin);
+
+                call2.enqueue(new Callback<AchiveRes>() {
+                    @Override
+                    public void onResponse(Call<AchiveRes> call, Response<AchiveRes> response) {
+                        // 네트워크로부터 데이터를 받았을 때,
+                        if(response.isSuccessful()){
+
+                            AchiveRes achiveRes = response.body();
+//                            int accessToken = AchiveRes.curren
+                            txtCoin.setText(strDetected.toString().length() + "개의 키워드가 맞았습니다. " +addedCoin +"코인이 추가됩니다.");
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<AchiveRes> call, Throwable t) {
+
+                    }
+                });
+
+
+
+                    // Todo 코인 추가하는 API 추가하기.
+
+                    // i 추가하기 위함
                 i = i+1;
 
 
@@ -233,7 +257,6 @@ public class RekogActivity extends AppCompatActivity {
 //        dialog.show();
 //
 //    }
-//
 //
 //    void dismissProgress() {
 //        dialog.dismiss();
@@ -286,7 +309,6 @@ public class RekogActivity extends AppCompatActivity {
 //
 //            ActivityCompat.requestPermissions(this, new String[]{
 //                    Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION);
-//
 //        }
 //    }
 
@@ -344,8 +366,6 @@ public class RekogActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         }
-
-
     }
 
     private File getPhotoFile(String fileName) {

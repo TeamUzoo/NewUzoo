@@ -16,4 +16,6 @@ public interface ShopApi {
     Call<ShopList> getShopList();
 
 
+
+
 }
