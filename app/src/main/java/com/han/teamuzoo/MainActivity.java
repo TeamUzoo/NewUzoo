@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnStart;
     ImageView btnCancel;
     ImageView btnStop;
+    ImageView imgLeft;
 //    Button sheetButtonStart;
     /* test */
     Button testbutton;
@@ -95,6 +96,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 메인 화면에서, 왼쪽 화살표 누르면 RekogActivity로 넘어감.
+        imgLeft = findViewById(R.id.imgLeft);
+        imgLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RekogActivity.class);
+                startActivity(intent);
+            }
+        });
 
         testbutton = findViewById(R.id.testbutton);
         testbutton.setOnClickListener(new View.OnClickListener() {

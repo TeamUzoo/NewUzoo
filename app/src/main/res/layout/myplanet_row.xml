@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -7,28 +8,48 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/neodgm"
-            android:text="집중 시간 분포도"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/txtContent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/neodgm"
-            android:text="총 집중 시간:"
-            android:textSize="12sp" />
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/neodgm"
+                android:text="집중 시간 분포도"
+                android:textSize="14sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/neodgm"
+                android:text="총 집중 시간:"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
 </LinearLayout>

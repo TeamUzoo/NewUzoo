@@ -26,8 +26,10 @@ import com.han.teamuzoo.model.TimerRes;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,7 +61,7 @@ public class MyplanetActivity extends AppCompatActivity {
     int successed_count;
     int failed_count;
 
-    ArrayList<Integer> time_list = new ArrayList<>();
+    List time_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,16 +252,22 @@ public class MyplanetActivity extends AppCompatActivity {
         Log.i("check", "onStop 실행됨");
     }
 
+
+
     // 그래프 함수
     private ArrayList<BarEntry> data1(){
-
+//
         ArrayList<BarEntry> dataList = new ArrayList<>();
 
         Log.i("check","그래프 함수 실행됨");
 
+        int[] testlist = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
+        List<int[]> test_list = Arrays.asList(testlist);
+
         // 그래프 만들기
         for (int i = 0; i < 24; i++) {
-            dataList.add(new BarEntry(i, 5));
+             dataList.add(new BarEntry(i,50));
+//            dataList.add(new BarEntry(i, time_list.get(i)));
 
 //            dataList.add(new BarEntry(i, time_list.get(i)));
 //            dataList.add(new BarEntry(i, 리스트[i]);
