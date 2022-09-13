@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import okhttp3.MediaType;
@@ -68,9 +69,12 @@ public class RekogActivity extends AppCompatActivity {
     ImageView imageView;
 
     TextView txtResult;
+    TextView txtCoin;
 
     ArrayList<String> strResult= new ArrayList<>();
+    ArrayList<String> strDetected= new ArrayList<>(Arrays.asList("Computer","Pen","Eraser","Book","Desk"));
 
+    int i;
 
 
     // 사진관련된 변수들
@@ -92,6 +96,7 @@ public class RekogActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imgBack = findViewById(R.id.imgBack);
         txtResult = findViewById(R.id.txtResult);
+        txtCoin = findViewById(R.id.txtCoin);
 
         // 화살표 버튼 누르면 MainActivity
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +111,11 @@ public class RekogActivity extends AppCompatActivity {
         imgCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // 예외 처리: 두 번 누르면 다시 찍으라고, 알람 뜨기
+                // 분석 중복 방지용
+                i = 0;
+                
                 Log.i("check","Camera 버튼 실행됨");
                 // 버튼을 누르면 카메라에서 선택인지 앨범에서 선텍인지
                 // 고를수있게 알러트 다이얼로그 띄운다.  밑에 알러트 다이얼로그 띄우는 함수 만든다.
@@ -125,19 +135,22 @@ public class RekogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if(i == 1){
+                    Toast.makeText(RekogActivity.this, "다시 촬영해주세요", Toast.LENGTH_SHORT).show();
+                    
+                } else{
+
                 Log.i("check","rekognition 버튼 눌러짐");
 
                 // API 호출
                 if (photoFile == null) {
                     Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
                     return;
-
                 }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(RekogActivity.this);
                 RekognitionApi api = retrofit.create(RekognitionApi.class);
                 Log.i("check","retrofit 호출 됨");
-
 
                 // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
                 RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
@@ -161,11 +174,24 @@ public class RekogActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<RekogRes> call, Response<RekogRes> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(RekogActivity.this, "업로드가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RekogActivity.this, "사물인식이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                             Log.i("check","rekognition 분석됨");
 
                             strResult = response.body().getDetected_labels();
                             txtResult.setText(""+strResult);
+
+                            Log.i("check",strResult.getClass().getName());
+
+                            // 중복값 찾기
+                            strDetected.retainAll(strResult);
+                            Log.i("check","중복된 값은 "+ strDetected.toString());
+
+                            txtCoin.setText(strDetected.toString().size() + "개의 키워드가 맞았습니다.해당 갯수만큼 코인이 추가됩니다.");
+
+                            // Todo 코인 추가하는 API 추가하기.
+
+
+
 
                         } else {
                         }
@@ -178,10 +204,17 @@ public class RekogActivity extends AppCompatActivity {
                     }
                 });
                 Log.i("check","호출 과정 건너뜀");
+                
+                // i 추가하기 위함
+                i = i+1;
 
 
+
+
+                
             }
-        });
+        }});
+
 
         // Todo 우리가 지정한 키워드와 맞는지 확인하고, 키워드가 맞으면, 개당 코인 추가
 
