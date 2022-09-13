@@ -2,8 +2,10 @@ package com.han.teamuzoo;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -31,6 +33,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.han.teamuzoo.api.NetworkClient;
+import com.han.teamuzoo.api.RekognitionApi;
+import com.han.teamuzoo.config.Config;
+import com.han.teamuzoo.model.RekogRes;
+
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;
@@ -42,6 +49,14 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 
 public class RekogActivity extends AppCompatActivity {
 
@@ -50,6 +65,8 @@ public class RekogActivity extends AppCompatActivity {
     ImageView imgBack;
 
     ImageView imageView;
+
+    private ProgressDialog dialog;
 
     // 사진관련된 변수들
     private File photoFile;
@@ -68,6 +85,7 @@ public class RekogActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imgBack = findViewById(R.id.imgBack);
 
+        // 화살표 버튼 누르면 MainActivity
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,9 +112,95 @@ public class RekogActivity extends AppCompatActivity {
         });
 
         // 분석
+        btnRekog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // API 호출
 
+                if (photoFile == null) {
+
+                    Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
+
+                    return;
+
+                }
+
+//                String content = editContent.getText().toString().trim();
+//
+//                if (content.isEmpty()) {
+//                    Toast.makeText(AddActivity.this, "내용을 입력하세요", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(RekogActivity.this);
+
+                RekognitionApi api = retrofit.create(RekognitionApi.class);
+
+                // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
+                RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
+
+                MultipartBody.Part photo = MultipartBody.Part.createFormData("photo",  // 키값
+                        photoFile.getName(), fileBody);
+
+//                // 멀티파트로로 텍스트를 보내는경우 파라미터 보내는 방법
+//                RequestBody contentBody = RequestBody.create(content, MediaType.parse("text/plain"));
+
+                // 헤더에 들어갈 억세스토큰 가져온다.
+
+                SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+
+                String accessToken = sp.getString("accessToken", "");
+
+                Call<RekogRes> call = api.rekognition("Bearer " + accessToken, photo);
+
+                showProgress("포스팅 하는중입니다.");
+
+                call.enqueue(new Callback<RekogRes>() {
+
+                    @Override
+
+                    public void onResponse(Call<RekogRes> call, Response<RekogRes> response) {
+
+                        dismissProgress();
+
+                        if (response.isSuccessful()) {
+
+                            Toast.makeText(RekogActivity.this, "업로드가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                            finish();
+
+                        } else {
+                        }
+                    }
+
+                    @Override
+
+                    public void onFailure(Call<RekogRes> call, Throwable t) {
+
+                        dismissProgress();
+                    }
+                });
+            }
+        });
+
+            }
+
+
+    // 다이얼로그 만드는 함수
+
+    void showProgress(String message) {
+
+        dialog = new ProgressDialog(RekogActivity.this);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage(message);
+        dialog.show();
 
     }
+
+
+    void dismissProgress() {
+        dialog.dismiss();
+    }
+
 
     // 알러트 다이얼로그 띄우는 함수
 
@@ -486,7 +590,6 @@ public class RekogActivity extends AppCompatActivity {
             e.printStackTrace( );
             return null;
         }
-
 
     }
 
