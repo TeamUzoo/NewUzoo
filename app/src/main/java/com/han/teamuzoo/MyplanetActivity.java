@@ -1,7 +1,6 @@
 package com.han.teamuzoo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -68,7 +67,7 @@ public class MyplanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myplanet);
 
-        iconDel = findViewById(R.id.iconDel);
+        iconDel = findViewById(R.id.imgBack);
         iconShare = findViewById(R.id.iconShare);
         imgPlanet = findViewById(R.id.imgPlanet);
 

@@ -2,7 +2,6 @@ package com.han.teamuzoo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,12 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-import com.han.teamuzoo.R;
 import com.han.teamuzoo.adapter.ShopAdapter;
 import com.han.teamuzoo.api.NetworkClient;
 import com.han.teamuzoo.api.ShopApi;
 import com.han.teamuzoo.config.Config;
-import com.han.teamuzoo.model.Pet;
 import com.han.teamuzoo.model.Shop;
 import com.han.teamuzoo.model.ShopList;
 
@@ -62,7 +59,7 @@ public class ShopListActivity extends AppCompatActivity {
 //        getSupportActionBar().setTitle( pet.getPetName() + " 동물 이름");
 
 
-        iconDel = findViewById(R.id.iconDel);
+        iconDel = findViewById(R.id.imgBack);
         imgBanner = findViewById(R.id.imgBanner);
         txtTitle = findViewById(R.id.txtTitle);
 
