@@ -590,8 +590,7 @@ public class MainActivity extends AppCompatActivity {
         // 현재 액티비티 클래스의 이름
         if (ActivityName.equals("MainActivity")){
             isPaused = false;
-        }else{
-
+        } else {
             // 취소 API 넣기
 
             Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);

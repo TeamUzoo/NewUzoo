@@ -20,7 +20,6 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,9 +79,6 @@ public class RekogActivity extends AppCompatActivity {
     int i;
 
     int realAddedCoin;
-
-    //MainActivity에서 가져온 변수
-    Button btnCoin = (Button) ((MainActivity)MainActivity.context).btnCoin;
 
 
     // 사진관련된 변수들
@@ -161,12 +157,14 @@ public class RekogActivity extends AppCompatActivity {
 
                 // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
                 RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
+
                 MultipartBody.Part photo = MultipartBody.Part.createFormData("photo",  // 키값
                         photoFile.getName(), fileBody);
                 Log.i("check","파일 파라미터 만듬");
 
                 // 헤더에 들어갈 억세스토큰 가져온다.
                 SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+
                 String accessToken = sp.getString("accessToken", "");
 
                 Call<RekogRes> call = api.rekognition("Bearer " + accessToken, photo);
@@ -191,14 +189,6 @@ public class RekogActivity extends AppCompatActivity {
                             strDetected.retainAll(strResult);
                             Log.i("check","중복된 값은 "+ strDetected.toString());
 
-
-                            realAddedCoin = strDetected.toString().length() * 2;
-                            txtCoin.setText( "3개의 키워드가 맞았습니다. 6 코인이 추가됩니다.");
-
-//                            btnCoin.setText("1252");
-
-//                            txtCoin.setText(strDetected.toString().length() + "개의 키워드가 맞았습니다. " + realAddedCoin +"코인이 추가됩니다.");
-
                         } else {
                         }
                     }
@@ -210,35 +200,38 @@ public class RekogActivity extends AppCompatActivity {
                 });
                 Log.i("check","호출 과정 건너뜀");
 
+                realAddedCoin = strDetected.toString().length() * 2;
+
+                GetCoin addedCoin = new GetCoin(realAddedCoin);
+                Call<AchiveRes> call2 = addedCoin.addCoin(addedCoin);
+
+                call2.enqueue(new Callback<AchiveRes>() {
+                    @Override
+                    public void onResponse(Call<AchiveRes> call, Response<AchiveRes> response) {
+                        // 네트워크로부터 데이터를 받았을 때,
+                        if(response.isSuccessful()){
+
+                            AchiveRes achiveRes = response.body();
+//                            int accessToken = AchiveRes.curren
+                            txtCoin.setText(strDetected.toString().length() + "개의 키워드가 맞았습니다. " +addedCoin +"코인이 추가됩니다.");
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<AchiveRes> call, Throwable t) {
+
+                    }
+                });
+
+
+
+                    // Todo 코인 추가하는 API 추가하기.
+
                     // i 추가하기 위함
                 i = i+1;
 
-//                    // Todo 코인 추가하는 API 추가하기.
-//                    realAddedCoin = strDetected.toString().length() * 2;
-//
-//                    // API 호출
-//                    AchivementApi api2 = retrofit.create((AchivementApi.class));
-//
-//                    // 보낼 데이터를 만든다.
-//                    GetCoin addedCoin = new GetCoin(realAddedCoin);
-//                    Call<AchiveRes> call2 = api2.addCoin("Bearer "+ accessToken,addedCoin);
-//
-//                    call2.enqueue(new Callback<AchiveRes>() {
-//                        @Override
-//                        public void onResponse(Call<AchiveRes> call, Response<AchiveRes> response) {
-//                            // 네트워크로부터 데이터를 받았을 때,
-//                            if(response.isSuccessful()){
-//
-//                                AchiveRes achiveRes = response.body();
-////
-//                                txtCoin.setText(strDetected.toString().length() + "개의 키워드가 맞았습니다. " +addedCoin +"코인이 추가됩니다.");
-//                            }
-//                        }
-//                        @Override
-//                        public void onFailure(Call<AchiveRes> call, Throwable t) {
-//                            Toast.makeText(RekogActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
 
 
 
