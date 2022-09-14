@@ -82,7 +82,7 @@ public class RekogActivity extends AppCompatActivity {
     int realAddedCoin;
 
     //MainActivity에서 가져온 변수
-    Button btnCoin = (Button) ((MainActivity)MainActivity.context).btnCoin;
+//    Button btnCoin = (Button) ((MainActivity)MainActivity.context).btnCoin;
 
 
     // 사진관련된 변수들
