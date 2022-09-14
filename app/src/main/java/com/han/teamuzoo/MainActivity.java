@@ -638,7 +638,6 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-            if(timerTask.)
             timerTask.cancel();
         }
 
