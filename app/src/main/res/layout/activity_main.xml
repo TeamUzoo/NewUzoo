@@ -16,7 +16,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="110dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="200dp"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="55sp" />
@@ -136,6 +136,7 @@
                     android:layout_gravity="center"
                     android:text="취소"
                     android:visibility="gone"
+                    android:onClick="OnClickHandler"
                     app:srcCompat="@drawable/btn_cancel" />
 
                 <ImageView
@@ -147,6 +148,13 @@
                     android:visibility="gone"
                     android:onClick="OnClickHandler"
                     app:srcCompat="@drawable/btn_stop" />
+
+                <Button
+                    android:id="@+id/btn_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="OnClickHandler"
+                    android:text="다이얼로그" />
 
             </FrameLayout>
 
@@ -172,15 +180,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/main_ani_rabbit" />
-
-            <Button
-                android:id="@+id/btn_dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:onClick="OnClickHandler"
-                android:text="다이얼로그"/>
 
         </LinearLayout>
 
