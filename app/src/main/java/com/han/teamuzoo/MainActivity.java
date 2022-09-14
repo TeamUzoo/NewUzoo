@@ -656,43 +656,47 @@ public class MainActivity extends AppCompatActivity {
         timerTask = new TimerTask()
         {
             int count = (int) progressCircular.getProgress();
-
             @Override
-            public void run()
-            {
-
-                if(isPaused == true){
-                    return;
-                }
-
-                count--;
-                Log.i("aaa", count + "");
-                if(count == 0)
-                    timerTask.cancel();
-
-                if(count <= count - 10){
-                    btnCancel.setVisibility(View.INVISIBLE);
-                } else if ( count > count - 10) {
-
-                    // handler postin
-                    btnStop.setVisibility(View.VISIBLE);
-                    btnCancel.setVisibility(View.INVISIBLE);
-                }
-
-
-                txtTimer.post(new Runnable() {
+            public void run(){
+                runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        runOnUiThread(new Runnable() {
+
+                        if(isPaused == true){
+                            return;
+                        }
+
+                        count--;
+                        Log.i("aaa", count + "");
+                        if(count == 0)
+                            timerTask.cancel();
+
+                        if(count <= count - 10){
+                            btnCancel.setVisibility(View.INVISIBLE);
+                        } else if ( count > count - 10) {
+
+                            // handler postin
+                            btnStop.setVisibility(View.VISIBLE);
+                            btnCancel.setVisibility(View.INVISIBLE);
+                        }
+
+
+                        txtTimer.post(new Runnable() {
                             @Override
                             public void run() {
-                                txtTimer.setText(count + "분");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        txtTimer.setText(count + "분");
+                                    }
+                                });
                             }
+
                         });
                     }
-
                 });
             }
+
         };
         timer.schedule(timerTask,0 ,1000);
         // period 60000으로 하기, 1000은 테스트용
