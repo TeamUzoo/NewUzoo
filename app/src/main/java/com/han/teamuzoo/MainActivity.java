@@ -510,6 +510,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         MainActivity.this, R.style.bottomSheetDialogTheme
                 );
@@ -637,11 +638,7 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-
-
-
-
-
+            if(timerTask.)
             timerTask.cancel();
         }
 
