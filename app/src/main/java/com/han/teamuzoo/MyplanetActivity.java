@@ -45,6 +45,8 @@ public class MyplanetActivity extends AppCompatActivity {
     TextView txtSuc;
     TextView txtDea;
 
+    TextView txtNoData;
+
     Button btnDay;
     Button btnWeek;
     Button btnMonth;
@@ -62,6 +64,10 @@ public class MyplanetActivity extends AppCompatActivity {
 
     List time_list;
 
+
+    ArrayList<BarEntry> data;
+    String label;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,16 +81,125 @@ public class MyplanetActivity extends AppCompatActivity {
         txtDea = findViewById(R.id.txtDea);
         txtDate = findViewById(R.id.txtDate);
 
+        txtNoData = findViewById(R.id.txtNoData);
+
         btnDay = findViewById(R.id.btnDay);
         btnWeek = findViewById(R.id.btnWeek);
         btnMonth = findViewById(R.id.btnMonth);
         btnYear = findViewById(R.id.btnYear);
+
+        //초기화
+        BarChart barChart = findViewById(R.id.bar_chart);
 
         // x 이미지를 누르면 activity 종료 = 화면 종료
         iconDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+         // 버튼 누르면: 날짜 범위 바뀌고, 리싸이클려뷰(집중시간 분포도, 총 집중시간) 분석도 바뀜, 버튼 표시 방식도 바뀜.
+         // 기본값: [일]
+         turnWhite(btnDay);
+         data = data1();
+         label = "Day Date";
+
+        showingGraph(data,label);
+
+         btnDay.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 // 오늘 날짜 표시
+                 txtDate.setText(getTimeToday());
+
+                 // 버튼 표시
+                 turnWhite(btnDay);
+                 turnBlack(btnWeek);
+                 turnBlack(btnMonth);
+                 turnBlack(btnYear);
+
+                 // Todo 리싸이클러뷰 표시
+
+                 data = data1();
+                 label = "Day Date";
+
+                 // Showing
+                 txtNoData.setVisibility(View.GONE);
+                 barChart.setVisibility(View.VISIBLE);
+                 showingGraph(data,label);
+
+             }
+         });
+
+         btnWeek.setOnClickListener((new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 // 날짜 변경
+                 // Todo 연도, 월별 7일전과 다를 경우 판단하는 코드 필요
+                 txtDate.setText(getTimeWeek() + " ~ " + getTimeToday2());
+
+                 // 버튼 표시
+                 turnBlack(btnDay);
+                 turnWhite(btnWeek);
+                 turnBlack(btnMonth);
+                 turnBlack(btnYear);
+
+                 //todo 리싸이클러뷰 표시
+
+                 data = data2();
+                 label = "Week Data";
+
+                 // Showing 으로 일단 표시
+                 txtNoData.setVisibility(View.GONE);
+                 barChart.setVisibility(View.VISIBLE);
+                 showingGraph(data,label);
+             }
+         }));
+
+         btnMonth.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 // 날짜 변경
+                 txtDate.setText(getTimeMonth());
+
+                 // 버튼 표시
+                 turnBlack(btnDay);
+                 turnBlack(btnWeek);
+                 turnWhite(btnMonth);
+                 turnBlack(btnYear);
+
+                 //todo 리싸이클러뷰 표시
+
+                 data = data3();
+                 label = "Month Data";
+
+                 // Showing 으로 일단 표시
+                 txtNoData.setVisibility(View.GONE);
+                 barChart.setVisibility(View.VISIBLE);
+                 showingGraph(data,label);
+
+             }
+         });
+
+        btnYear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 날짜 변경
+                txtDate.setText(getTimeYear());
+
+                //todo 리싸이클러뷰 표시
+
+                // 버튼 표시
+                turnBlack(btnDay);
+                turnBlack(btnWeek);
+                turnBlack(btnMonth);
+                turnWhite(btnYear);
+
+                // Showing
+                barChart.setVisibility(View.GONE);
+                txtNoData.setVisibility(View.VISIBLE);
+                txtNoData.setText("No Data");
             }
         });
 
@@ -126,116 +241,39 @@ public class MyplanetActivity extends AppCompatActivity {
             public void onFailure(Call<ResultRes> call, Throwable t) {
             }
         }));
-
-         // 버튼 누르면: 날짜 범위 바뀌고, 리싸이클려뷰(집중시간 분포도, 총 집중시간) 분석도 바뀜, 버튼 표시 방식도 바뀜.
-         // 기본값: [일]
-         turnWhite(btnDay);
-
-         btnDay.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 // 오늘 날짜 표시
-                 txtDate.setText(getTimeToday());
-
-                 // 버튼 표시
-                 turnWhite(btnDay);
-                 turnBlack(btnWeek);
-                 turnBlack(btnMonth);
-                 turnBlack(btnYear);
-
-                 // Todo 리싸이클러뷰 표시
-             }
-         });
-
-         btnWeek.setOnClickListener((new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 // 날짜 변경
-                 // Todo 연도, 월별 7일전과 다를 경우 판단하는 코드 필요
-                 txtDate.setText(getTimeWeek() + " ~ " + getTimeToday2());
-
-                 // 버튼 표시
-                 turnBlack(btnDay);
-                 turnWhite(btnWeek);
-                 turnBlack(btnMonth);
-                 turnBlack(btnYear);
-
-                 //todo 리싸이클러뷰 표시
-             }
-         }));
-
-         btnMonth.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 // 날짜 변경
-                 txtDate.setText(getTimeMonth());
-
-                 // 버튼 표시
-                 turnBlack(btnDay);
-                 turnBlack(btnWeek);
-                 turnWhite(btnMonth);
-                 turnBlack(btnYear);
-
-                 //todo 리싸이클러뷰 표시
-             }
-         });
-
-        btnYear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // 날짜 변경
-                txtDate.setText(getTimeYear());
-
-                //todo 리싸이클러뷰 표시
-
-                // 버튼 표시
-                turnBlack(btnDay);
-                turnBlack(btnWeek);
-                turnBlack(btnMonth);
-                turnWhite(btnYear);
-            }
-        });
-        // 타임 리스트 받아오기
-//        Retrofit retrofit = NetworkClient.getRetrofitClient(MyplanetActivity.this);
-        TimerApi api2 = retrofit.create(TimerApi.class);
-
-//        SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
-//        String accessToken = sp.getString("accessToken", "");
-
-        Call<TimerRes> call3 = api2.getTotalTimeToday("Bearer "+accessToken);
-
-        call3.enqueue((new Callback<TimerRes>() {
-            @Override
-            public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
-                if(response.isSuccessful()){
-
-                   time_list = response.body().getTime_list();
-
-                }
-            }
-            @Override
-            public void onFailure(Call<TimerRes> call, Throwable t) {
-            }
-        }));
+//        // 타임 리스트 받아오기
+////        Retrofit retrofit = NetworkClient.getRetrofitClient(MyplanetActivity.this);
+//        TimerApi api2 = retrofit.create(TimerApi.class);
+//
+////        SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+////        String accessToken = sp.getString("accessToken", "");
+//
+//        Call<TimerRes> call3 = api2.getTotalTimeToday("Bearer "+accessToken);
+//
+//        call3.enqueue((new Callback<TimerRes>() {
+//            @Override
+//            public void onResponse(Call<TimerRes> call, Response<TimerRes> response) {
+//                if(response.isSuccessful()){
+//
+//                   time_list = response.body().getTime_list();
+//
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<TimerRes> call, Throwable t) {
+//            }
+//        }));
 
 
         Log.i("check","time_list : " +time_list );
 
-        // 그래프 사용 코드(리사이클러뷰 사용해야됨
-        //초기화
-        BarChart barChart = findViewById(R.id.bar_chart);
+        // Todo 그래프 데이터 불러오는 거 완성시켜야함.
 
-        //1. 데이터 생성
-        BarDataSet barDataSet1 = new BarDataSet(data1(), "Data1");
+        // Showing 으로 일단 표시
+        // 그래프 사용 코드
 
-        //2. 바 데이터 생성
-        BarData barData = new BarData();
 
-        //3. 바 데이터에 데이터셋 추가
-        barData.addDataSet(barDataSet1);
 
-        //4. 바차트에 바데이터 등록
-        barChart.setData(barData);
 
     }
 
@@ -251,36 +289,73 @@ public class MyplanetActivity extends AppCompatActivity {
         Log.i("check", "onStop 실행됨");
     }
 
+// 그래프 showing
+    private void showingGraph(ArrayList<BarEntry> data,String label){
+        BarChart barChart = findViewById(R.id.bar_chart);
+
+        //1. 데이터 생성
+        BarDataSet barDataSet1 = new BarDataSet(data, label);
+
+        //2. 바 데이터 생성
+        BarData barData = new BarData();
+
+        //3. 바 데이터에 데이터셋 추가
+        barData.addDataSet(barDataSet1);
+
+        //4. 바차트에 바데이터 등록
+        barChart.setData(barData);
 
 
-    // 그래프 함수
+    }
+
+    // 그래프 함수(일)
     private ArrayList<BarEntry> data1(){
 //
         ArrayList<BarEntry> dataList = new ArrayList<>();
 
         Log.i("check","그래프 함수 실행됨");
+        ArrayList<Integer> showingList= new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24));
 
-        int[] testlist = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
-        List<int[]> test_list = Arrays.asList(testlist);
+//        List<int[]> test_list = Arrays.asList(testlist);
 
         // 그래프 만들기
         for (int i = 0; i < 24; i++) {
-             dataList.add(new BarEntry(i,50));
+             dataList.add(new BarEntry(i,showingList.get(i)));
 //            dataList.add(new BarEntry(i, time_list.get(i)));
-
-//            dataList.add(new BarEntry(i, time_list.get(i)));
-//            dataList.add(new BarEntry(i, 리스트[i]);
-
         }
 
+        return dataList;
+    }
+
+    // 그래프 함수(주)
+    private ArrayList<BarEntry> data2(){
+        ArrayList<BarEntry> dataList = new ArrayList<>();
+        Log.i("check","그래프 함수 실행됨");
+        ArrayList<Integer> showingList= new ArrayList<>(Arrays.asList(100,200,300,400,500,600,700));
+
+        // 그래프 만들기
+        for (int i = 0; i < 7; i++) {
+            dataList.add(new BarEntry(i,showingList.get(i)));}
+        return dataList;
+    }
+
+    // 그래프 함수(월)
+    private ArrayList<BarEntry> data3(){
+        ArrayList<BarEntry> dataList = new ArrayList<>();
+        Log.i("check","그래프 함수 실행됨");
+        ArrayList<Integer> showingList= new ArrayList<>(Arrays.asList(1000,2000,3000,4000,5000,600,700,800,90,1000,110,1200));
+
+        // 그래프 만들기
+        for (int i = 0; i < 12; i++) {
+            dataList.add(new BarEntry(i,showingList.get(i)));}
         return dataList;
     }
 
     // 버튼 눌렀을 때, 배경 하얀색 되게 설정하는 함수
     private Button turnWhite(Button btn){
 
-        btn.setBackgroundColor(Color.parseColor("#ffffff"));
-        btn.setTextColor(Color.parseColor("#404040"));
+        btn.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+        btn.setTextColor(Color.parseColor("#FF000000"));
 
         return btn;
     }
@@ -288,6 +363,7 @@ public class MyplanetActivity extends AppCompatActivity {
     // 버튼 눌렀을 때, 배경 검게 되게 설정하는 함수
     private Button turnBlack(Button btn){
 
+//        btn.setBa
         btn.setBackgroundColor(Color.parseColor("#00FF0000"));
         btn.setTextColor(Color.parseColor("#FFFFFFFF"));
 

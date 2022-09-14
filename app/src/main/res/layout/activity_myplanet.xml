@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00ff0000"
-            android:src="@drawable/icon_share" />
+            android:src="@drawable/icon_share"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <ScrollView
@@ -50,12 +51,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#000000"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -63,16 +63,18 @@
                     android:id="@+id/btnDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00FF0000"
                     android:backgroundTint="#00FF0000"
                     android:fontFamily="@font/neodgm"
                     android:text="일"
-                    android:textColor="#FFFFFFFF"
+                    android:textColor="#FFFFFF"
                     app:cornerRadius="20dp" />
 
                 <Button
                     android:id="@+id/btnWeek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00FF0000"
                     android:backgroundTint="#00FF0000"
                     android:fontFamily="@font/neodgm"
                     android:text="주"
@@ -83,6 +85,7 @@
                     android:id="@+id/btnMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00FF0000"
                     android:backgroundTint="#00FF0000"
                     android:fontFamily="@font/neodgm"
                     android:text="월"
@@ -93,6 +96,7 @@
                     android:id="@+id/btnYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="#00FF0000"
                     android:backgroundTint="#00FF0000"
                     android:fontFamily="@font/neodgm"
                     android:text="년"
@@ -104,7 +108,10 @@
                 android:id="@+id/txtDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="100dp"
                 android:fontFamily="@font/neodgm"
                 android:gravity="center"
                 android:text="2022년 8월 11일(오늘)"
@@ -157,18 +164,35 @@
                     android:layout_weight="1"
                     android:text="2"
                     android:textColor="#FFFFFF" />
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNoData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/neodgm"
+                android:gravity="center"
+                android:text="."
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:visibility="gone" />
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/bar_chart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="203dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20dp"
+                android:background="#25F6EBEB"
+                android:backgroundTint="#F6ECEC" />
 
         </LinearLayout>
     </ScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </LinearLayout>

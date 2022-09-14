@@ -3,8 +3,9 @@ package com.han.teamuzoo.model;
 public class GetCoin {
 
     private int getCoin;
-    private int currency_now;
 
+    // 기본 생성자
+    public GetCoin(){}
 
     public GetCoin(int getCoin) {
         this.getCoin = getCoin;
@@ -16,13 +17,5 @@ public class GetCoin {
 
     public void setGetCoin(int getCoin) {
         this.getCoin = getCoin;
-    }
-
-    public int getCurrency_now() {
-        return currency_now;
-    }
-
-    public void setCurrency_now(int currency_now) {
-        this.currency_now = currency_now;
     }
 }

@@ -58,17 +58,22 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="7" />
 
-            <Button
+            <TextView
                 android:id="@+id/btnCoin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/box_coin"
                 android:drawableLeft="@drawable/icon_coin"
                 android:fontFamily="@font/neodgm"
+                android:gravity="center"
                 android:text="1246"
-                android:textSize="14sp" />
+                android:textColor="#EFEDED"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

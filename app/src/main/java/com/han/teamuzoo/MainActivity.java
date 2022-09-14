@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//    Button sheetButtonStart;
+    //    Button sheetButtonStart;
     /* test */
     Button testbutton;
     Button btn_dialog;
@@ -545,28 +545,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 교수님이 짜주신 코드 //
-    IntentFilter intentFilter = new IntentFilter();
-    intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
-    BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF)){
-                // 원하는 코드작성
-                Log.i("aaa", "화면 꺼짐");
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF)){
+                    // 원하는 코드작성
+                    Log.i("aaa", "화면 꺼짐");
 
+                }
             }
-        }
-    };
-    registerReceiver(receiver, intentFilter);
+        };
+        registerReceiver(receiver, intentFilter);
 
 //    startTimerTask();
-}
+    }
 
-// 알러트 다이얼로그 코드
-public void OnClickHandler(View view) {
-    CustomDialog dialog = new CustomDialog(this);
-    dialog.callDialog();
-}
+    // 알러트 다이얼로그 코드
+    public void OnClickHandler(View view) {
+        CustomDialog dialog = new CustomDialog(this);
+        dialog.callDialog();
+    }
 
 
 
@@ -639,9 +639,9 @@ public void OnClickHandler(View view) {
             });
 
 
-            
 
-           
+
+
 
             timerTask.cancel();
         }
@@ -708,7 +708,7 @@ public void OnClickHandler(View view) {
             Log.i("aaaStop", "타이머 스탑 222");
             timerTask.cancel();
 //            timerTask = null;
-            
+
         }
     }
 
