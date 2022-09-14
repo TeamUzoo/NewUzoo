@@ -82,7 +82,7 @@ public class RekogActivity extends AppCompatActivity {
     int realAddedCoin;
 
     //MainActivity에서 가져온 변수
-    Button btnCoin = (Button) ((MainActivity)MainActivity.context).btnCoin;
+//    Button btnCoin = (Button) ((MainActivity)MainActivity.context).btnCoin;
 
 
     // 사진관련된 변수들
@@ -123,7 +123,7 @@ public class RekogActivity extends AppCompatActivity {
                 // 예외 처리: 두 번 누르면 다시 찍으라고, 알람 뜨기
                 // 분석 중복 방지용
                 i = 0;
-                
+
                 Log.i("check","Camera 버튼 실행됨");
                 // 버튼을 누르면 카메라에서 선택인지 앨범에서 선텍인지
                 // 고를수있게 알러트 다이얼로그 띄운다.  밑에 알러트 다이얼로그 띄우는 함수 만든다.
@@ -138,7 +138,7 @@ public class RekogActivity extends AppCompatActivity {
             }
         });
 
-         // 분석
+        // 분석
         imgRekog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,69 +149,69 @@ public class RekogActivity extends AppCompatActivity {
 
                 if(i == 1){
                     Toast.makeText(RekogActivity.this, "다시 촬영해주세요", Toast.LENGTH_SHORT).show();
-                    
+
                 } else{
-                Log.i("check","rekognition 버튼 눌러짐");
+                    Log.i("check","rekognition 버튼 눌러짐");
 
-                // API 호출
-                if (photoFile == null) {
-                    Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    // API 호출
+                    if (photoFile == null) {
+                        Toast.makeText(RekogActivity.this, "사진을 선택하세요", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
-                RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
-                MultipartBody.Part photo = MultipartBody.Part.createFormData("photo",  // 키값
-                        photoFile.getName(), fileBody);
-                Log.i("check","파일 파라미터 만듬");
+                    // 멀티파트로 파일 보내는 경우 파일 파라미터 만드는 방법
+                    RequestBody fileBody = RequestBody.create(photoFile, MediaType.parse("image/*"));
+                    MultipartBody.Part photo = MultipartBody.Part.createFormData("photo",  // 키값
+                            photoFile.getName(), fileBody);
+                    Log.i("check","파일 파라미터 만듬");
 
-                // 헤더에 들어갈 억세스토큰 가져온다.
-                SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
-                String accessToken = sp.getString("accessToken", "");
+                    // 헤더에 들어갈 억세스토큰 가져온다.
+                    SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+                    String accessToken = sp.getString("accessToken", "");
 
-                Call<RekogRes> call = api.rekognition("Bearer " + accessToken, photo);
-                Log.i("check","API 호출 중");
-
-
-                // 성공하면, 파일을 업로드 하고, 그 파일을 S3에 저장하고,
-
-                call.enqueue(new Callback<RekogRes>() {
-                    @Override
-                    public void onResponse(Call<RekogRes> call, Response<RekogRes> response) {
-                        if (response.isSuccessful()) {
-                            Toast.makeText(RekogActivity.this, "사물인식이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                            Log.i("check","rekognition 분석됨");
-
-                            strResult = response.body().getDetected_labels();
-                            txtResult.setText(""+strResult);
-
-                            Log.i("check",strResult.getClass().getName());
-
-                            // 중복값 찾기
-                            strDetected.retainAll(strResult);
-                            Log.i("check","중복된 값은 "+ strDetected.toString());
+                    Call<RekogRes> call = api.rekognition("Bearer " + accessToken, photo);
+                    Log.i("check","API 호출 중");
 
 
-                            realAddedCoin = strDetected.toString().length() * 2;
-                            txtCoin.setText( "3개의 키워드가 맞았습니다. 6 코인이 추가됩니다.");
+                    // 성공하면, 파일을 업로드 하고, 그 파일을 S3에 저장하고,
+
+                    call.enqueue(new Callback<RekogRes>() {
+                        @Override
+                        public void onResponse(Call<RekogRes> call, Response<RekogRes> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(RekogActivity.this, "사물인식이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                Log.i("check","rekognition 분석됨");
+
+                                strResult = response.body().getDetected_labels();
+                                txtResult.setText(""+strResult);
+
+                                Log.i("check",strResult.getClass().getName());
+
+                                // 중복값 찾기
+                                strDetected.retainAll(strResult);
+                                Log.i("check","중복된 값은 "+ strDetected.toString());
+
+
+                                realAddedCoin = strDetected.toString().length() * 2;
+                                txtCoin.setText( "3개의 키워드가 맞았습니다. 6 코인이 추가됩니다.");
 
 //                            btnCoin.setText("1252");
 
 //                            txtCoin.setText(strDetected.toString().length() + "개의 키워드가 맞았습니다. " + realAddedCoin +"코인이 추가됩니다.");
 
-                        } else {
+                            } else {
+                            }
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<RekogRes> call, Throwable t) {
-                        Log.i("check","API 호출 실패");
+                        @Override
+                        public void onFailure(Call<RekogRes> call, Throwable t) {
+                            Log.i("check","API 호출 실패");
 //                        dismissProgress();
-                    }
-                });
-                Log.i("check","호출 과정 건너뜀");
+                        }
+                    });
+                    Log.i("check","호출 과정 건너뜀");
 
                     // i 추가하기 위함
-                i = i+1;
+                    i = i+1;
 
 //                    // Todo 코인 추가하는 API 추가하기.
 //                    realAddedCoin = strDetected.toString().length() * 2;
@@ -242,16 +242,16 @@ public class RekogActivity extends AppCompatActivity {
 
 
 
-                
-            }
-        }});
+
+                }
+            }});
 
 
         // Todo 우리가 지정한 키워드와 맞는지 확인하고, 키워드가 맞으면, 개당 코인 추가
 
 
 
-            }
+    }
 
 //
 //    // 다이얼로그 만드는 함수
