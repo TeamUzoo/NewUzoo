@@ -34,7 +34,7 @@ public class CustomDialog2 extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(context, "아니오", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                ((MainActivity) context).finish();
+//                ((MainActivity) context).finish();
             }
         });
 

@@ -26,29 +26,32 @@ public class CustomDialog extends AppCompatActivity {
         dialog.setContentView(R.layout.activity_custom_dialog);
         dialog.show();
 
-        final ImageView btnOk = (ImageView) dialog.findViewById(R.id.btnOk);
-        final ImageView btnDel = (ImageView) dialog.findViewById(R.id.btnDel);
+        final ImageView btnNo = (ImageView) dialog.findViewById(R.id.btnNo);
+        final ImageView btnYes = (ImageView) dialog.findViewById(R.id.btnYes);
 
         // 아니오 버튼
-        btnDel.setOnClickListener(new View.OnClickListener() {
+        btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "아니오", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                ((MainActivity) context).finish();
+//                ((MainActivity) context).finish();
             }
         });
 
         // 포기하기 버튼
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        btnNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
-                Toast.makeText(context,"포기하기", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), CustomDialog2.class);
+                Intent intent = new Intent(CustomDialog.this, CustomDialog2.class);
                 startActivity(intent);
+                finish();
             }
+
         });
+
+        dialog.show();
+
 
     }
 
