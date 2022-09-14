@@ -30,12 +30,12 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.navigation.NavigationView;
-import com.han.teamuzoo.api.MyPetApi;
 import com.han.teamuzoo.api.NetworkClient;
+import com.han.teamuzoo.api.TimerApi;
 import com.han.teamuzoo.api.UserApi;
 import com.han.teamuzoo.config.Config;
-import com.han.teamuzoo.model.MyPet;
-import com.han.teamuzoo.model.MyPetList;
+import com.han.teamuzoo.model.MainTimer;
+import com.han.teamuzoo.model.MainTimerRes;
 import com.han.teamuzoo.model.UserRes;
 
 import java.util.List;
@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnCancel;
     ImageView btnStop;
     ImageView imgLeft;
+    int newId;
+
+
+
 //    Button sheetButtonStart;
     /* test */
     Button testbutton;
@@ -120,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         btnCancel = findViewById(R.id.btnCancel);
         btnStop = findViewById(R.id.btnStop);
@@ -198,6 +204,35 @@ public class MainActivity extends AppCompatActivity {
                 btnCancel.setVisibility(View.VISIBLE);
                 startTimerTask();
 
+                int setTime = (int) progressCircular.getProgress();
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                TimerApi api = retrofit.create(TimerApi.class);
+
+                SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME, MODE_PRIVATE);
+                String token = sp.getString("accessToken", "");
+
+                MainTimer mainTimer = new MainTimer(setTime);
+
+                Call<MainTimerRes> call = api.startTimer("Bearer "+token, mainTimer);
+
+                call.enqueue(new Callback<MainTimerRes>() {
+                    @Override
+                    public void onResponse(Call<MainTimerRes> call, Response<MainTimerRes> response) {
+                        if(response.isSuccessful()) {
+
+                            Toast.makeText(MainActivity.this, "타이머 시작",Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MainTimerRes> call, Throwable t) {
+
+                    }
+                });
+
+
 
 
 
@@ -242,6 +277,52 @@ public class MainActivity extends AppCompatActivity {
                 btnStart.setVisibility(View.VISIBLE);
                 stopTimerTask();
 
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                TimerApi api = retrofit.create(TimerApi.class);
+
+                SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME,MODE_PRIVATE);
+                String accessToken = sp.getString("accessToken", "");
+
+                Call<MainTimerRes> call = api.timerList("Bearer "+accessToken);
+
+                call.enqueue(new Callback<MainTimerRes>() {
+                    @Override
+                    public void onResponse(Call<MainTimerRes> call, Response<MainTimerRes> response) {
+                        if(response.isSuccessful()){
+
+                            newId = response.body().getNewId();
+                            Call<MainTimerRes> call2 = api.deleteTimer("Bearer "+ accessToken, newId);
+
+                            call2.enqueue(new Callback<MainTimerRes>() {
+                                @Override
+                                public void onResponse(Call<MainTimerRes> call2, Response<MainTimerRes> response) {
+                                    if(response.isSuccessful()){
+                                        Toast.makeText(MainActivity.this, "타이머가 취소돼었습니다.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<MainTimerRes> call2, Throwable t) {
+
+                                }
+                            });
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MainTimerRes> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "타이머 취소 실패", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                });
+
+
                 txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
 
                 // todo : 10초 이내 < 취소하는 API 연결
@@ -260,7 +341,52 @@ public class MainActivity extends AppCompatActivity {
                 txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
                 Log.i("aaaStop", "btnStop 타이머 포기");
 
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                TimerApi api = retrofit.create(TimerApi.class);
 
+                SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME,MODE_PRIVATE);
+                String accessToken = sp.getString("accessToken", "");
+
+                Call<MainTimerRes> call = api.timerList("Bearer "+accessToken);
+
+                call.enqueue(new Callback<MainTimerRes>() {
+                    @Override
+                    public void onResponse(Call<MainTimerRes> call, Response<MainTimerRes> response) {
+                        if(response.isSuccessful()){
+
+                            newId = response.body().getNewId();
+                            Call<MainTimerRes> call2 = api.failTimer("Bearer "+ accessToken, newId);
+
+                            call2.enqueue(new Callback<MainTimerRes>() {
+                                @Override
+                                public void onResponse(Call<MainTimerRes> call2, Response<MainTimerRes> response) {
+                                    if(response.isSuccessful()){
+                                        Toast.makeText(MainActivity.this, "타이머 포기.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<MainTimerRes> call2, Throwable t) {
+
+                                }
+                            });
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MainTimerRes> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "타이머 포기 실패", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                });
+
+
+                txtTimer.setText(Math.round(progressCircular.getProgress())+"분");
 
                 //todo : 타이머 포기 API 연결
             }
@@ -461,10 +587,61 @@ public void OnClickHandler(View view) {
         String ActivityName = componentName.getShortClassName().substring(1);
         Log.i("aaa", ActivityName);
 
-        // 여러분의 현재 액티비티 클래스의 이름
+        // 현재 액티비티 클래스의 이름
         if (ActivityName.equals("MainActivity")){
             isPaused = false;
         }else{
+
+            // 취소 API 넣기
+
+            Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+            TimerApi api = retrofit.create(TimerApi.class);
+
+            SharedPreferences sp = getApplication().getSharedPreferences(Config.PREFERENCES_NAME,MODE_PRIVATE);
+            String accessToken = sp.getString("accessToken", "");
+
+            Call<MainTimerRes> call = api.timerList("Bearer "+accessToken);
+
+            call.enqueue(new Callback<MainTimerRes>() {
+                @Override
+                public void onResponse(Call<MainTimerRes> call, Response<MainTimerRes> response) {
+                    if(response.isSuccessful()){
+
+                        newId = response.body().getNewId();
+                        Call<MainTimerRes> call2 = api.deleteTimer("Bearer "+ accessToken, newId);
+
+                        call2.enqueue(new Callback<MainTimerRes>() {
+                            @Override
+                            public void onResponse(Call<MainTimerRes> call2, Response<MainTimerRes> response) {
+                                if(response.isSuccessful()){
+                                    Toast.makeText(MainActivity.this, "타이머가 취소돼었습니다.", Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<MainTimerRes> call2, Throwable t) {
+
+                            }
+                        });
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MainTimerRes> call, Throwable t) {
+                    Toast.makeText(MainActivity.this, "타이머 취소 실패", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+
+            });
+
+
+            
+
+           
 
             timerTask.cancel();
         }
