@@ -161,12 +161,14 @@
    
  </br> 
  </br>  
+ 
 ## 화면 플로우
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
 
 [상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
  </br> 
  </br> 
+ 
 ## 테이블 설계
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
 </br>
