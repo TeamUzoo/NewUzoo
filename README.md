@@ -179,7 +179,6 @@
 
     
 </br>
-</br>
 
 ## 진행 중의 문제점 및 해결 방법
 
@@ -195,5 +194,11 @@
 
 - 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
 -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
+
+</br>
+</br>
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
+
 
 
