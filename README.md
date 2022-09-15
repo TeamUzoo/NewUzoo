@@ -64,7 +64,7 @@ AwS CloudWatch
 
 |  타이머  |  동물 | 촬영 | 
 |--|--|--|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297048-bf516713-0e5e-4d93-bca6-b64defa28e7e.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300497-f7d9da57-bb80-46d2-ab9f-691ab8bef8d5.png) | 
+| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190301744-c7e81dd5-b58a-420f-aa24-f4e3966dea72.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300497-f7d9da57-bb80-46d2-ab9f-691ab8bef8d5.png) | 
 |내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸 됩니다.  | 집중시간을 완료하여 키운 동물을 나의 우주에서 확인해보아요.  | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
 
 
