@@ -143,7 +143,7 @@
 
 <br/>
 
-| 인공지능 | 친구 | 업적 | 업적 |
+| 인공지능 | 친구 | 리스트 | 나의 우주 |
 |----|----|---|---|
 | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309730-f4fa5560-0da5-47bd-9e9a-eb33b9df0d5e.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309732-7e92a637-a751-4e80-aa0f-92c2ceb514bd.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309734-8a4e8c42-09d1-405d-bf0e-a33468ba0fed.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190311167-2598c9f3-0751-4f86-b6bf-8672ffe4fa1f.gif)|
 |집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요! |내가 성공한 동물을 확인하고, 나의 집중시간을 그래프로 확인해요!|
@@ -195,4 +195,5 @@
 
 - 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
 -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
+
 
