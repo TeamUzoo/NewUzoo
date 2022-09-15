@@ -3,19 +3,6 @@
 #### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
 <br/>
 
-## 기획 의도
-
-사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
-
-잠시 핸드폰을 내려놓고 현실의 중요한 일에 집중해야 할 때,
-우주 : Uzoo 에서 동물을 키워 보세요. 시간이 지남에 따라, 동물은 점점 자랄것입니다. 
-하지만 스마트폰의 유혹에 견디지 못하고 우주 : Uzoo 앱을 나가버리면 동물이 병에 들어버릴 것입니다.
-동물을 키워나가며 얻게 되는 성취감과 책임감 덕분에,
-핸드폰에서 점차 멀어지고 시간을 더욱 효율적으로 활용할 수 있습니다.
-
-![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
-
-<br/>
      
 ## 사용 언어
 <a href="https://www.python.org/">
@@ -134,9 +121,24 @@ AwS CloudWatch
 |:--:|:--:|:--:|
 | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png) |![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png)  | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png) |
 |**한재훈**| **여현진** | **조윤영**
-|개발 총괄 </br> 테이블 설계 </br>  협업툴 및 리소스 관리 | RestfulAPI 설계,Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄, 화면 기획등 프론트엔드 위주 작업
+|개발 총괄 </br> 테이블 설계 </br>  협업툴 및 리소스 관리 | RestfulAPI 설계 </br> Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄 </br> 문서 작성 및 화면 기획등 프론트엔드 위주 작업
 
+</br>
+</br>
 
+## 기획 의도
+
+사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
+
+잠시 핸드폰을 내려놓고 현실의 중요한 일에 집중해야 할 때,
+우주 : Uzoo 에서 동물을 키워 보세요. 시간이 지남에 따라, 동물은 점점 자랄것입니다. 
+하지만 스마트폰의 유혹에 견디지 못하고 우주 : Uzoo 앱을 나가버리면 동물이 병에 들어버릴 것입니다.
+동물을 키워나가며 얻게 되는 성취감과 책임감 덕분에,
+핸드폰에서 점차 멀어지고 시간을 더욱 효율적으로 활용할 수 있습니다.
+
+![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
+
+<br/>
 
 
 ##  프로젝트 개요 및 화면구성
@@ -160,22 +162,32 @@ AwS CloudWatch
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
 
 [상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
+ </br> 
+ </br> 
+## 테이블 설계
+![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
+</br>
+[테이블 설계도 확대하기](https://drive.google.com/file/d/10NSzGyFc59dpKupwvLHp63_stMtM-lRN/view?usp=sharing)
+
+</br>
 
 ## API 설계서
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
-
+</br>
 [상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
    
-           
+ </br>
+          
            
 ## 사용 기술
 
 -   인공지능 AWS Recognition 객체 탐지 기능  
 -  MPAndroidChart 사용하여 그래프 구현
 - 안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
-- 
-    
 
+    
+</br>
+</br>
 
 ## 진행 중의 문제점 및 해결 방법
 
@@ -191,6 +203,7 @@ AwS CloudWatch
 
 - 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
 -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
+
 
 
 
