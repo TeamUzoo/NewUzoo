@@ -16,7 +16,10 @@
 
      
 ## 사용 언어
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)  : flask를 기반으로 둔 API를 설계 
+<a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/python-%20-brightgreen"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>  : flask를 기반으로 둔 API를 설계 
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  : 안드로이드 스튜디오에서 프론트엔드 개발
     
@@ -24,29 +27,68 @@
 ##  사용툴
 > ### 기본사용 툴
 
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) : flask를 이용하여 Restful API 구현에 사용했습니다. 
+<a href="https://code.visualstudio.com/">
+    <img src="https://img.shields.io/badge/VisualStudioCode-ss%20-%23007ACC"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : flask를 이용하여 Restful API 구현에 사용했습니다. 
 
-![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white) : 앱의 화면 구현/프론트엔드에 사용하였습니다. 
+<a href="https://developer.android.com/studio/intro">
+    <img src="https://img.shields.io/badge/AndroidStudio-%20-%233DDC84"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 앱의 화면 구현/프론트엔드에 사용하였습니다. 
 
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) : DB관리 및 쿼리문 작성에 사용하였습니다.
+<a href="https://www.mysql.com/">
+    <img src="https://img.shields.io/badge/MySQL-%20-%234479A1"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : DB관리 및 쿼리문 작성에 사용하였습니다.
 
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) : 서버 배포, CI/CD, 서버리스를 이용하여 서버에 배포했습니다.
+<a href="https://aws.amazon.com/ko/">
+    <img src="https://img.shields.io/badge/AWS-%20-%23FF9900"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 서버 배포, CI/CD, 서버리스를 이용하여 서버에 배포했습니다.
 
-![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white) : 파이썬을 이용하여 코드 작성 및 테스트에 사용했습니다.
+<a href="https://www.anaconda.com/">
+    <img src="https://img.shields.io/badge/Anaconda-%20-%2344A833"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 파이썬을 이용하여 코드 작성 및 테스트에 사용했습니다.
 
-**ERD 클라우드** : 테이블 기획하는 데 사용했습니다. 
+<a href="https://www.erdcloud.com/">
+    <img src="https://img.shields.io/badge/ERD%20Cloud-%20-%239333EA"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>: 테이블 기획에 사용했습니다. 
 
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) :  아이콘 제작, 화면 기획서 등 디자인이 필요한 부분에 사용하였습니다.
+<a href="https://www.figma.com/">
+    <img src="https://img.shields.io/badge/Figma-%20-%23F24E1E"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> :  아이콘 제작, 화면 기획서 등 디자인이 필요한 부분에 사용하였습니다.
+
+<a href="https://www.serverless.com/">
+    <img src="https://img.shields.io/badge/Serverless-%20-%23FD5750"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.
 
 > ### 협업툴
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) : 두 개의 레파지토리로 나누어서, 각 API 관리와 안드로이드 스튜디오 개발 협업툴로 사용했습니다.
+<a href="https://github.com/">
+    <img src="https://img.shields.io/badge/GitHub-%20-%23181717"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 두 개의 레파지토리로 나누어서, 각 API 관리와 안드로이드 스튜디오 개발 협업툴로 사용했습니다.
 
- ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) : RestfulAPI 테스트 및 서버 적용 여부 테스트에 사용하였습니다.
+ <a href="https://www.postman.com/">
+    <img src="https://img.shields.io/badge/Postman-%20-%23FF6C37"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>
+ : RestfulAPI 테스트 및 서버 적용 여부 테스트에 사용하였습니다.
  
-  ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)  : 기본 소통, 파일 전달, 회의록 작성 등 기록용으로 사용했습니다.
+  <a href="https://slack.com/intl/ko-kr/">
+    <img src="https://img.shields.io/badge/Slack-%20-%234A154B"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>  : 기본 소통, 파일 전달, 회의록 작성 등 기록용으로 사용했습니다.
   
   
-![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white): API 명세서 작성, 대량 리소스 보관, 문서 작성 등에 사용하였습니다.
+<a href="https://www.google.com/drive/">
+    <img src="https://img.shields.io/badge/Google%20Drive-%20-%234285F4"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>: API 명세서 작성, 대량 리소스 보관, 문서 작성 등에 사용하였습니다.
        
 ##  AWS
 RDS
@@ -58,6 +100,16 @@ API Gateway
 AwS CloudWatch
 
          
+## 참여 인원
+|  |  |  |
+|:--:|:--:|:--:|
+| ![enter image description here](https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png) |![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png)  | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png) |
+|**한재훈**| **여현진** | **조윤영**
+|개발 총괄, 테이블 설계, 협업툴 및 리소스 관리 | RestfulAPI 설계,Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄, 화면 기획등 프론트엔드 위주 작업
+
+
+
+
 ##  프로젝트 개요 및 화면구성
 > 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
 내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
