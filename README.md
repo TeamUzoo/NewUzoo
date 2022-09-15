@@ -1,6 +1,8 @@
+
 # 우주 Uzoo
 #### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
-      
+<br/>
+
 ## 기획 의도
 
 사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
@@ -13,7 +15,7 @@
 
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
 
-
+<br/>
      
 ## 사용 언어
 <a href="https://www.python.org/">
@@ -23,6 +25,7 @@
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  : 안드로이드 스튜디오에서 프론트엔드 개발
     
+<br/>
 
 ##  사용툴
 > ### 기본사용 툴
@@ -111,6 +114,7 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : RestfulAPI 작업에 사용하였습니다.  
 <br/>
+<br/>
 
 
 ##  AWS
@@ -122,13 +126,15 @@ Rekognition
 API Gateway
 AwS CloudWatch
 
+<br/>
+<br/>
          
 ## 참여 인원
 |  |  |  |
 |:--:|:--:|:--:|
 | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png) |![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png)  | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png) |
 |**한재훈**| **여현진** | **조윤영**
-|개발 총괄, 테이블 설계, 협업툴 및 리소스 관리 | RestfulAPI 설계,Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄, 화면 기획등 프론트엔드 위주 작업
+|개발 총괄 </br> 테이블 설계 </br>  협업툴 및 리소스 관리 | RestfulAPI 설계,Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄, 화면 기획등 프론트엔드 위주 작업
 
 
 
