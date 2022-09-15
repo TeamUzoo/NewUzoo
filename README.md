@@ -1,6 +1,6 @@
 # 우주 Uzoo
 #### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
-
+      
 ## 기획 의도
 
 사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
@@ -14,11 +14,12 @@
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
 
 
-
+     
 ## 사용 언어
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)  : flask를 기반으로 둔 API를 설계 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  : 안드로이드 스튜디오에서 프론트엔드 개발
 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  : 안드로이드 스튜디오에서 프론트엔드 개발
+    
 
 ##  사용툴
 > ### 기본사용 툴
@@ -46,7 +47,7 @@
   
   
 ![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white): API 명세서 작성, 대량 리소스 보관, 문서 작성 등에 사용하였습니다.
-
+       
 ##  AWS
 RDS
 S3
@@ -56,10 +57,10 @@ Rekognition
 API Gateway
 AwS CloudWatch
 
-
-##  프로젝트 개요
+         
+##  프로젝트 개요 및 화면구성
 > 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
-내 할 일을 다 하고 돌아오면, 자라난 나의 동물을 확인할 수 있습니다.
+내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
 
 
 |  타이머  |  동물 | 촬영 | 
@@ -71,27 +72,44 @@ AwS CloudWatch
 | 리스트 | 친구 | 업적 | 
 |----|----|---|
 | ![enter image description here](https://user-images.githubusercontent.com/102447800/190299465-72d0c071-506f-4598-acb6-5b548e9b1c24.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190299739-1dd0c451-3cb8-4534-a617-08fc433bd608.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300011-f7bccb65-47bd-4839-90e6-e80044d38433.png) | 
-|현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요!  | 나는 친구보다 더 많이 공부할 수 있어요!  | 내가 집중한 만큼의 보상을 추가로 얻어요! |
-
+|현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 내가 집중한 만큼의 보상을 추가로 얻어요! |
+   
+   
 ## 화면 플로우
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
 
 [상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
 
-##  화면 구성
+## API 설계서
+![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
 
-
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
-
+[상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
+   
+           
+           
 ## 사용 기술
 
-## 문제점 및 해결방법
+-   인공지능 AWS Recognition 객체 탐지 기능  
+-  MPAndroidChart 사용하여 그래프 구현
+- 안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
+- 
+    
 
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+
+## 진행 중의 문제점 및 해결 방법
+
+> Rekognition
+
+- 서버 응답시간의 초과로 인해 API 작동이 멈추는 현상
+ -> AWS의 Lambda 제한시간을 늘려서 해결
+
+- 촬영 구도와 대상의 위치 따른 객체 탐지의 어려움
+ -> 추후 촬영 가이드라인을 제시하여 원활한 객체탐지 도움
+
+> Android LifeCycle
+
+- 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
+-> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
 
 
 
