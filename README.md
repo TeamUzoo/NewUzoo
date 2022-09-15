@@ -66,7 +66,7 @@ AwS CloudWatch
 |  타이머  |  동물 | 촬영 | 
 |--|--|--|
 | ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190301744-c7e81dd5-b58a-420f-aa24-f4e3966dea72.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300497-f7d9da57-bb80-46d2-ab9f-691ab8bef8d5.png) | 
-|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸 됩니다.  | 집중시간을 완료하여 키운 동물을 나의 우주에서 확인해보아요.  | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
+|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸됩니다. | 집중시간을 완료하여 키운 동물과 나의 집중시간을 나의 우주에서 확인해 보아요. 많이 키운 동물일수록 몸집이 커집니다! | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
 
 
 | 리스트 | 친구 | 업적 | 
@@ -111,32 +111,3 @@ AwS CloudWatch
 - 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
 -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
 
-
-
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
