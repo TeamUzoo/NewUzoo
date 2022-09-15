@@ -168,7 +168,7 @@
 ## - API 설계서
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
 </br>
-헤더 부분에 restfulAPI의 형식에 맞추어 jwt인증토큰 처리를 하였습니다.
+**헤더 부분에 restfulAPI의 형식에 맞추어 jwt인증토큰 처리를 하였습니다.**
 </br>
 </br>
 [상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
