@@ -2,6 +2,7 @@
 
 
 
+
 ![header](https://capsule-render.vercel.app/api?type=waving&text=Uzoo&animation=scaleIn&color=timeGradient&fontSize=70&height=200 )
 
 
@@ -11,7 +12,7 @@
 </br>
 
      
-## 사용 언어
+## - 사용 언어
 <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/python-%20-brightgreen"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -27,7 +28,7 @@
 </br>
 </br>
 
-##  사용툴
+##  - 사용툴
 > ### 기본사용 툴
 
 <a href="https://code.visualstudio.com/">
@@ -109,7 +110,7 @@
 </br>
 </br>
 
- ##  프레임워크
+ ##  - 프레임워크
 <a href="https://flask.palletsprojects.com/en/2.2.x/">
     <img src="https://img.shields.io/badge/Flask-%20-%23000000"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -119,7 +120,7 @@
 </br>
 
          
-## 참여 인원
+## - 참여 인원
 |  |  |  |
 |:--:|:--:|:--:|
 | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png) |![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png)  | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png) |
@@ -129,7 +130,7 @@
 </br>
 </br>
 
-## 기획 의도
+## - 프로젝트 기획 의도
 
 > 사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
 
@@ -145,10 +146,38 @@
 </br>
 
 
-##  프로젝트 개요 및 화면구성
+## - 화면 플로우
+![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
+
+</br> 
+
+[상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
+ </br> 
+ </br> 
+ 
+## - 테이블 설계
+![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
+
+</br>
+
+[테이블 설계도 확대하기](https://drive.google.com/file/d/10NSzGyFc59dpKupwvLHp63_stMtM-lRN/view?usp=sharing)
+
+</br>
+</br>
+
+## - API 설계서
+![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
+</br>
+
+[상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
+   
+ </br>
+ </br>
+
+## - 화면구성
 > 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
 내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
-
+ </br>
 
 |  타이머  |  설정 | 업적 | 
 |--|--|--|
@@ -164,45 +193,19 @@
    
 </br>
 </br>
- 
-## 화면 플로우
-![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
-
-</br> 
-
-[상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
- </br> 
- </br> 
- 
-## 테이블 설계
-![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
-
-</br>
-
-[테이블 설계도 확대하기](https://drive.google.com/file/d/10NSzGyFc59dpKupwvLHp63_stMtM-lRN/view?usp=sharing)
-
-</br>
-
-
-## API 설계서
-![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
-</br>
-[상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
-   
- </br>
-          
            
-## 사용 기술
+           
+## - 사용 기술
 
 -   인공지능 AWS Recognition 객체 탐지 기능  
 -  MPAndroidChart 사용하여 그래프 구현
 - 안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
 
-    
+   
 </br>
 </br>
 
-## 진행 중의 문제점 및 해결 방법
+## - 진행 중의 문제점 및 해결 방법
 
 > Rekognition
 
