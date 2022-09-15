@@ -31,7 +31,7 @@
     <img src="https://img.shields.io/badge/VisualStudioCode-ss%20-%23007ACC"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : flask를 이용하여 Restful API 구현에 사용했습니다.   
-#
+<br/>
     
     
    
