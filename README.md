@@ -40,7 +40,7 @@
 <a href="https://aws.amazon.com/ko/">
     <img src="https://img.shields.io/badge/AWS-%20-%23FF9900"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a> : 서버 배포, CI/CD, 서버리스를 이용하여 서버에 배포했습니다.  
+</a> : 서버 배포, AWS에 있는 RDS, S3, IAM, Lambda, Rekognition, API Gateway, AwS CloudWatch등의 기능을 사용하였습니다.
 <br/>
 
 <a href="https://www.anaconda.com/">
@@ -104,17 +104,7 @@
 <br/>
 
 
-##  AWS
-RDS
-S3
-IAM
-Lambda
-Rekognition
-API Gateway
-AwS CloudWatch
 
-<br/>
-<br/>
          
 ## 참여 인원
 |  |  |  |
@@ -146,18 +136,20 @@ AwS CloudWatch
 내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
 
 
-|  타이머  |  동물 | 촬영 | 
+|  타이머  |  설정 | 업적 | 
 |--|--|--|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190301744-c7e81dd5-b58a-420f-aa24-f4e3966dea72.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300497-f7d9da57-bb80-46d2-ab9f-691ab8bef8d5.png) | 
-|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸됩니다. | 집중시간을 완료하여 키운 동물과 나의 집중시간을 나의 우주에서 확인해 보아요. 많이 키운 동물일수록 몸집이 커집니다! | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
+|![enter image description here](https://user-images.githubusercontent.com/105832457/190309072-adf9dae7-e467-41a2-8806-2982955740b1.gif) |![enter image description here](https://user-images.githubusercontent.com/105832457/190309723-5fcf001f-b3ff-4e02-8e0b-65b76425bffc.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309728-9a2b0cf9-2314-4fe5-881b-f37d2a760b62.gif)| 
+|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸됩니다. | 내 계정에 대해 설정을 만져봅시다. | 내가 집중한 만큼의 보상을 추가로 얻어요! |
 
+<br/>
 
-| 리스트 | 친구 | 업적 | 
-|----|----|---|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190299465-72d0c071-506f-4598-acb6-5b548e9b1c24.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190299739-1dd0c451-3cb8-4534-a617-08fc433bd608.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300011-f7bccb65-47bd-4839-90e6-e80044d38433.png) | 
-|현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 내가 집중한 만큼의 보상을 추가로 얻어요! |
+| 인공지능 | 친구 | 업적 | 업적 |
+|----|----|---|---|
+| ![enter image description here](https://user-images.githubusercontent.com/105832457/190309730-f4fa5560-0da5-47bd-9e9a-eb33b9df0d5e.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309732-7e92a637-a751-4e80-aa0f-92c2ceb514bd.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309734-8a4e8c42-09d1-405d-bf0e-a33468ba0fed.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190311167-2598c9f3-0751-4f86-b6bf-8672ffe4fa1f.gif)|
+|집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요! |내가 성공한 동물을 확인하고, 나의 집중시간을 그래프로 확인해요!|
    
-   
+ </br> 
+ </br>  
 ## 화면 플로우
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
 
@@ -203,7 +195,4 @@ AwS CloudWatch
 
 - 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
 -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
-
-
-
 
