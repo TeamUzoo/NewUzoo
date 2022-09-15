@@ -16,7 +16,10 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>  : flask를 기반으로 둔 API를 설계 
 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  : 안드로이드 스튜디오에서 프론트엔드 개발
+<a href="https://www.java.com/ko/">
+    <img src="https://img.shields.io/badge/JAVA-%20-%23F7DF1E"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 안드로이드 스튜디오에서 프론트엔드 개발
     
 <br/>
 
