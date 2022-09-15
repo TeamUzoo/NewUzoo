@@ -58,21 +58,20 @@ AwS CloudWatch
 
 
 ##  프로젝트 개요
-스마트폰에 집중 시간을 설정합니다. 
-그리고 집중 시간 동안 키워낼 동물을 선택합니다. 
-내 할일을 다 하고 돌아오면, 내가 키운 동물을 확인 할 수 있습니다.
+> 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
+내 할 일을 다 하고 돌아오면, 자라난 나의 동물을 확인할 수 있습니다.
 
 
-|  타이머 기능 |  동물 | 촬영 | 
+|  타이머  |  동물 | 촬영 | 
 |--|--|--|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297048-bf516713-0e5e-4d93-bca6-b64defa28e7e.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297375-b03d48e6-501f-4c33-951b-6b74dae3fe23.png) | 
+| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297048-bf516713-0e5e-4d93-bca6-b64defa28e7e.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300497-f7d9da57-bb80-46d2-ab9f-691ab8bef8d5.png) | 
 |내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸 됩니다.  | 집중시간을 완료하여 키운 동물을 나의 우주에서 확인해보아요.  | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
 
-.
-|타이머 기능|동물|촬영| 
-|--|----|---|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190296445-c9bdbef9-adda-4289-b23a-c6ab4fd478b6.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297048-bf516713-0e5e-4d93-bca6-b64defa28e7e.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190297375-b03d48e6-501f-4c33-951b-6b74dae3fe23.png) | 
-|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸 됩니다.  | 집중시간을 완료하여 키운 동물을 나의 우주에서 확인해보아요.  | 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요! |
+
+| 리스트 | 친구 | 업적 | 
+|----|----|---|
+| ![enter image description here](https://user-images.githubusercontent.com/102447800/190299465-72d0c071-506f-4598-acb6-5b548e9b1c24.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190299739-1dd0c451-3cb8-4534-a617-08fc433bd608.png) | ![enter image description here](https://user-images.githubusercontent.com/102447800/190300011-f7bccb65-47bd-4839-90e6-e80044d38433.png) | 
+|현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요!  | 나는 친구보다 더 많이 공부할 수 있어요!  | 내가 집중한 만큼의 보상을 추가로 얻어요! |
 
 ## 화면 플로우
 ![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
