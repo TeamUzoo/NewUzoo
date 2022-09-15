@@ -39,66 +39,79 @@
     <img src="https://img.shields.io/badge/AndroidStudio-%20-%233DDC84"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : 앱의 화면 구현/프론트엔드에 사용하였습니다.   
-
+<br/>
 
 <a href="https://www.mysql.com/">
     <img src="https://img.shields.io/badge/MySQL-%20-%234479A1"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : DB관리 및 쿼리문 작성에 사용하였습니다.  
+<br/>
 
 <a href="https://aws.amazon.com/ko/">
     <img src="https://img.shields.io/badge/AWS-%20-%23FF9900"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : 서버 배포, CI/CD, 서버리스를 이용하여 서버에 배포했습니다.  
+<br/>
 
 <a href="https://www.anaconda.com/">
     <img src="https://img.shields.io/badge/Anaconda-%20-%2344A833"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : 파이썬을 이용하여 코드 작성 및 테스트에 사용했습니다.  
+<br/>
 
 <a href="https://www.erdcloud.com/">
     <img src="https://img.shields.io/badge/ERD%20Cloud-%20-%239333EA"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>: 테이블 기획에 사용했습니다.   
+<br/>
 
 <a href="https://www.figma.com/">
     <img src="https://img.shields.io/badge/Figma-%20-%23F24E1E"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> :  아이콘 제작, 화면 기획서 등 디자인이 필요한 부분에 사용하였습니다.  
+<br/>
 
 <a href="https://www.serverless.com/">
     <img src="https://img.shields.io/badge/Serverless-%20-%23FD5750"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.  
+<br/>
+<br/>
 
 > ### 협업툴
 <a href="https://github.com/">
     <img src="https://img.shields.io/badge/GitHub-%20-%23181717"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : 두 개의 레파지토리로 나누어서, 각 API 관리와 안드로이드 스튜디오 개발 협업툴로 사용했습니다.  
+<br/>
 
  <a href="https://www.postman.com/">
     <img src="https://img.shields.io/badge/Postman-%20-%23FF6C37"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>
  : RestfulAPI 테스트 및 서버 적용 여부 테스트에 사용하였습니다.   
+ <br/>
  
   <a href="https://slack.com/intl/ko-kr/">
     <img src="https://img.shields.io/badge/Slack-%20-%234A154B"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>  : 기본 소통, 파일 전달, 회의록 작성 등 기록용으로 사용했습니다.  
-  
+<br/>
   
 <a href="https://www.google.com/drive/">
     <img src="https://img.shields.io/badge/Google%20Drive-%20-%234285F4"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>: API 명세서 작성, 대량 리소스 보관, 문서 작성 등에 사용하였습니다.  
- 
+<br/>
+<br/>
+
  ##  프레임워크
 <a href="https://flask.palletsprojects.com/en/2.2.x/">
     <img src="https://img.shields.io/badge/Flask-%20-%23000000"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : RestfulAPI 작업에 사용하였습니다.  
+<br/>
+
 
 ##  AWS
 RDS
