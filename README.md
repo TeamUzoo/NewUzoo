@@ -1,5 +1,11 @@
 
-# 우주 Uzoo
+
+
+
+![header](https://capsule-render.vercel.app/api?type=waving&text=Uzoo&animation=scaleIn&color=timeGradient&fontSize=70&height=200 )
+
+
+# 우주: Uzoo
 #### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
 <br/>
 
@@ -179,6 +185,7 @@
 
     
 </br>
+</br>
 
 ## 진행 중의 문제점 및 해결 방법
 
@@ -198,7 +205,6 @@
 </br>
 </br>
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
-
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=200&section=footer)
 
 
