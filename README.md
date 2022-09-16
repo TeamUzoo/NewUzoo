@@ -11,8 +11,11 @@
 </br>
 </br>
 
-## 데이터분석과 인공지능을 활용한 스마트폰 과몰입방지 서비스!
-     
+### 데이터분석과 인공지능을 활용한 스마트폰 과몰입방지 서비스!
+ 
+</br>
+</br>
+
 ## - 사용 언어
 <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/python-%20-brightgreen"
