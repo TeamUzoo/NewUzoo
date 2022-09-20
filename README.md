@@ -17,12 +17,48 @@
 
 </br>
 
+[TOC]
+
+
+
+</br>
+
 ## 🚀 개요
 
 \- Backend, Frontend, DevOps의 통합 시간관리 안드로이드 앱 제작 프로젝트입니다.
 \- 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
 
+</br>
 
+### - 화면구성
+
+> 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
+> 내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
+>  </br>
+
+| 타이머                                                       | 설정                                                         | 업적                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![enter image description here](https://user-images.githubusercontent.com/105832457/190309072-adf9dae7-e467-41a2-8806-2982955740b1.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309723-5fcf001f-b3ff-4e02-8e0b-65b76425bffc.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309728-9a2b0cf9-2314-4fe5-881b-f37d2a760b62.gif) |
+| 내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸됩니다. | 내 계정에 대해 설정을 만져봅시다.                            | 내가 집중한 만큼의 보상을 추가로 얻어요!                     |
+
+</br>
+
+| 인공지능                                                     | 친구                                                         | 리스트                                                       | 나의 우주                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![enter image description here](https://user-images.githubusercontent.com/105832457/190309730-f4fa5560-0da5-47bd-9e9a-eb33b9df0d5e.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309732-7e92a637-a751-4e80-aa0f-92c2ceb514bd.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309734-8a4e8c42-09d1-405d-bf0e-a33468ba0fed.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190311167-2598c9f3-0751-4f86-b6bf-8672ffe4fa1f.gif) |
+| 집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요!        | 친구의 성공/실패 및 랭킹을 확인해요!                         | 현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요! | 내가 성공한 동물을 확인하고, 나의 집중시간을 그래프로 확인해요! |
+
+
+
+</br>
+
+### - 참여 인원
+
+|                                                              |                                                              |                                                              |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png" alt="enter image description here" style="zoom: 150%;" /> | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png) | <img src="https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png" alt="enter image description here" style="zoom:150%;" /> |
+|                          **한재훈**                          |                          **여현진**                          |                          **조윤영**                          |
+|   개발 총괄 </br> 테이블 설계 </br>  협업툴 및 리소스 관리   | RestfulAPI 설계 </br> Rekognition 기능 구현등 백엔드 위주 작업 | 디자인 총괄 </br> 문서 작성 및 화면 기획등 프론트엔드 위주 작업 |
 
 </br>
 
@@ -114,6 +150,16 @@
 
 </br>
 
+### - 사용 기술
+
+-   인공지능 AWS Recognition 객체 탐지 기능  
+-   MPAndroidChart 사용하여 그래프 구현
+-   안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
+
+</br>
+
+
+
 ### 📌 진행 중의 문제점 및 해결 방법
 
 > Rekognition
@@ -139,6 +185,10 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>  : flask를 기반으로 둔 API를 설계 
 
+</br>
+
+
+
 <a href="https://www.java.com/ko/">
     <img src="https://img.shields.io/badge/JAVA-%20-%23F7DF1E"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -146,6 +196,18 @@
 </br>
 
 ###  - 사용 툴
+- Backend: MySQL, Visual Studio Code, Postman
+
+- Frontend: Android Studio
+
+- DevOps:  AWS EC2/ RDS/ CloudWatch/ S3/ Lambda, Serverless
+
+  
+
+  </br>
+
+  
+
 > #### 기본사용 툴
 
 <a href="https://code.visualstudio.com/">
@@ -166,12 +228,6 @@
 </a> : DB관리 및 쿼리문 작성에 사용하였습니다.  
 </br>
 
-<a href="https://aws.amazon.com/ko/">
-    <img src="https://img.shields.io/badge/AWS-%20-%23FF9900"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a> : 서버 배포, AWS에 있는 RDS, S3, IAM, Lambda, Rekognition, API Gateway, AwS CloudWatch등의 기능을 사용하였습니다.
-</br>
-
 <a href="https://www.anaconda.com/">
     <img src="https://img.shields.io/badge/Anaconda-%20-%2344A833"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -179,37 +235,23 @@
 </br>
 
 
-</br>
-
-
-
-</br>
-
-<a href="https://www.serverless.com/">
-    <img src="https://img.shields.io/badge/Serverless-%20-%23FD5750"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.  
-</br>
 
 > #### 협업툴
 
 <a href="https://github.com/">
 <img src="https://img.shields.io/badge/GitHub-%20-%23181717"
-   style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a> : 코드의 공유 및 실시간 반영을 위해 GitHub의 Team Repository 활용하였습니다.
+   style="height : auto; margin-left : 8px; margin-right : 8px;"/></a> : 코드의 공유 및 실시간 반영을 위해 GitHub의 Team Repository 활용하였습니다.
 </br>
 
- <a href="https://www.postman.com/">
+<a href="https://www.postman.com/">
     <img src="https://img.shields.io/badge/Postman-%20-%23FF6C37"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a>
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/></a>
  : RestfulAPI 테스트 및 서버 적용 여부 테스트에 사용하였습니다.   
 </br>
 
-  <a href="https://slack.com/intl/ko-kr/">
+ <a href="https://slack.com/intl/ko-kr/">
     <img src="https://img.shields.io/badge/Slack-%20-%234A154B"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a>  : 진행상황 공유 및 회의진행, 전반적 소통을 위해 Slack 활용하였습니다. 
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/></a>  : 진행상황 공유 및 회의진행, 전반적 소통을 위해 Slack 활용하였습니다. 
 </br>
 
 <a href="https://www.figma.com/">
@@ -239,54 +281,39 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : RestfulAPI 작업에 사용하였습니다.  
 
-</br>
-</br>
+<a href="https://www.serverless.com/">
+    <img src="https://img.shields.io/badge/Serverless-%20-%23FD5750"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.  
 
-
-## - 참여 인원
-|  |  |  |
-|:--:|:--:|:--:|
-| ![enter image description here](https://user-images.githubusercontent.com/102447800/190305479-1220a176-d937-4129-8e54-91e2f275a083.png) |![enter image description here](https://user-images.githubusercontent.com/102447800/190305605-7785141e-04a3-4e1a-9ade-8c4f50ab1e16.png)  | ![enter image description here](https://user-images.githubusercontent.com/102447800/190305704-b79d7105-9604-4d23-ad00-abd5450a9dd2.png) |
-|**한재훈**| **여현진** | **조윤영**
-|개발 총괄 </br> 테이블 설계 </br>  협업툴 및 리소스 관리 | RestfulAPI 설계 </br> Rekognition 기능 구현등 백엔드 위주 작업 |디자인 총괄 </br> 문서 작성 및 화면 기획등 프론트엔드 위주 작업
-
-</br>
-</br>
-
-
- </br>
-
-## - 화면구성
-> 스마트폰에 집중 시간을 설정합니다.  그리고 집중 시간 동안 키워낼 동물을 선택합니다.  
-내 할 일을 다 하고 돌아오면, 성장한 나의 동물을 확인할 수 있습니다.
- </br>
-
-|  타이머  |  설정 | 업적 | 
-|--|--|--|
-|![enter image description here](https://user-images.githubusercontent.com/105832457/190309072-adf9dae7-e467-41a2-8806-2982955740b1.gif) |![enter image description here](https://user-images.githubusercontent.com/105832457/190309723-5fcf001f-b3ff-4e02-8e0b-65b76425bffc.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309728-9a2b0cf9-2314-4fe5-881b-f37d2a760b62.gif)| 
-|내가 집중할 시간을 선택해요! 핸드폰을 만지거나, 다른 앱을 키는 순간 타이머는 자동 소멸됩니다. | 내 계정에 대해 설정을 만져봅시다. | 내가 집중한 만큼의 보상을 추가로 얻어요! |
+- Rounded Image View: 이미지 프레임을 원형으로 사용하기 위해 사용한 라이브러리입니다.
+- Circular SeekBar: 타이머의 시간을 조절하는 영역을 수직의 ProgressBar가 아닌 원형으로 구성하기 위해 사용하였습니다.
+- MP AndroidChart : 사용자의 데이터를 가공하고 실시간으로 시각화하기 위해 사용하였습니다.
 
 </br>
 
-| 인공지능 | 친구 | 리스트 | 나의 우주 |
-|----|----|---|---|
-| ![enter image description here](https://user-images.githubusercontent.com/105832457/190309730-f4fa5560-0da5-47bd-9e9a-eb33b9df0d5e.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309732-7e92a637-a751-4e80-aa0f-92c2ceb514bd.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309734-8a4e8c42-09d1-405d-bf0e-a33468ba0fed.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190311167-2598c9f3-0751-4f86-b6bf-8672ffe4fa1f.gif)|
-|집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요! |내가 성공한 동물을 확인하고, 나의 집중시간을 그래프로 확인해요!|
+
+
+![](https://img.shields.io/badge/Rounded Image View--pink)
 
 </br>
-</br>
-           
-           
-## - 사용 기술
 
--   인공지능 AWS Recognition 객체 탐지 기능  
--  MPAndroidChart 사용하여 그래프 구현
-- 안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
 
-   
+
+## 🚀 테스트
+
+
+
+### - 단위 테스트
+
+- 서버:  함수별로 테스트 했습니다. 
+- SQL: 쿼리문으로 mySQL Workbench에서 직접 실행하여 테스트 했습니다.
 
 </br>
-</br>
+
+### - API 테스트
+
+- Postman : 각 API 별로 로컬테스트 -≫ 피드백 문서 작성 -≫ 공유 및 테스트 -≫ 서버 배포 순으로 함수 단위로 테스트를 하였습니다.
 
 
 </br>
