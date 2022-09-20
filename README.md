@@ -202,8 +202,6 @@
 
 - DevOps:  AWS EC2/ RDS/ CloudWatch/ S3/ Lambda, Serverless
 
-  
-
   </br>
 
   
@@ -234,7 +232,7 @@
 </a> : 파이썬을 이용하여 코드 작성 및 테스트에 사용했습니다.  
 </br>
 
-
+</br>
 
 > #### 협업툴
 
@@ -295,10 +293,14 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>: 이미지 프레임을 원형으로 사용하기 위해 사용한 라이브러리입니다.
 
+</br>
+
 <a href="https://github.com/tankery/CircularSeekBar">
     <img src="https://img.shields.io/badge/Circular SeekBar-%20-%23F7DF1E"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>: 타이머의 시간을 조절하는 영역을 수직의 ProgressBar가 아닌 원형으로 구성하기 위해 사용하였습니다.
+
+</br>
 
 <a href="https://github.com/PhilJay/MPAndroidChart">
     <img src="https://img.shields.io/badge/MPAndroidChart-%20-%23302bb5"
