@@ -109,7 +109,8 @@
 
 </br>
 
-- [화면 기획서 보기 클릭]: https://www.figma.com/file/Qggk82xEXTcKjfOcETnQ2T/%EC%9A%B0%EC%A3%BC-Uzoo-%ED%99%94%EB%A9%B4-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0%3A1
+[화면 기획서 보기 클릭]: https://www.figma.com/file/Qggk82xEXTcKjfOcETnQ2T/%EC%9A%B0%EC%A3%BC-Uzoo-%ED%99%94%EB%A9%B4-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0%3A1
+- 
 
 </br>
 
