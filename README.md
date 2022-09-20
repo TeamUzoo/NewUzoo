@@ -281,20 +281,31 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : RestfulAPI 작업에 사용하였습니다.  
 
+</br>
+
 <a href="https://www.serverless.com/">
     <img src="https://img.shields.io/badge/Serverless-%20-%23FD5750"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.  
 
-- Rounded Image View: 이미지 프레임을 원형으로 사용하기 위해 사용한 라이브러리입니다.
-- Circular SeekBar: 타이머의 시간을 조절하는 영역을 수직의 ProgressBar가 아닌 원형으로 구성하기 위해 사용하였습니다.
-- MP AndroidChart : 사용자의 데이터를 가공하고 실시간으로 시각화하기 위해 사용하였습니다.
-
 </br>
 
+<a href="https://github.com/vinc3m1/RoundedImageView">
+    <img src="https://img.shields.io/badge/Rounded Image View-%20-%f58e3b"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>: 이미지 프레임을 원형으로 사용하기 위해 사용한 라이브러리입니다.
 
+<a href="https://github.com/tankery/CircularSeekBar">
+    <img src="https://img.shields.io/badge/Circular SeekBar-%20-%23F7DF1E"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>: 타이머의 시간을 조절하는 영역을 수직의 ProgressBar가 아닌 원형으로 구성하기 위해 사용하였습니다.
 
-![](https://img.shields.io/badge/Rounded Image View--pink)
+<a href="https://github.com/PhilJay/MPAndroidChart">
+    <img src="https://img.shields.io/badge/MPAndroidChart-%20-%23302bb5"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 사용자의 데이터를 가공하고 실시간으로 시각화하기 위해 사용하였습니다.
+
+</br>
 
 </br>
 
