@@ -6,46 +6,154 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&text=Uzoo&animation=scaleIn&color=timeGradient&fontSize=70&height=200 )
 
 
-# 우주: Uzoo
-#### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
+# 🌏 우주: Uzoo
+##### _공부/업무에 방해되는 스마트폰, 이제는 집중 도구로 사용할 수는 없을까?_
 </br>
 </br>
 
 ### 데이터분석과 인공지능을 활용한 스마트폰 과몰입방지 서비스!
- 
+
+</br>
+
+</br>
+
+## 🚀 개요
+
+\- Backend, Frontend, DevOps의 통합 시간관리 안드로이드 앱 제작 프로젝트입니다.
+\- 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
+
+
+
+</br>
+
 </br>
 
 
 
+## 🚀 프로젝트 기획
+
+### - 기획 의도
+
+> 사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
+
+- 할 일을 미뤄두고, 스마트폰에 너무 중독된 학생/직장인들. 그렇다면 역으로 스마트폰을 이용하여 해야할 일을 완성시키면 어떨까?
+
+- 잠시 핸드폰을 내려놓고 현실의 중요한 일에 집중해야 할 때,
+  우주 : Uzoo 에서 동물을 키워 보세요. 시간이 지남에 따라, 동물은 점점 자랄것입니다. 
+
+- 하지만 스마트폰의 유혹에 견디지 못하고 우주 : Uzoo 앱을 나가버리면 동물이 병에 들어버릴 것입니다.
+- 동물을 키워나가며 얻게 되는 성취감과 책임감 덕분에, 핸드폰에서 점차 멀어지고 시간을 더욱 효율적으로 활용할 수 있습니다.
+
+![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
+
 </br>
 
-## - 사용 언어
+
+
+### - 화면 기획서
+
+![](https://user-images.githubusercontent.com/102447800/191146470-9d517c4a-9ae0-4efc-9299-bbeceec57307.png)
+
+</br>
+
+- [화면 기획서 보기 클릭]: https://www.figma.com/file/Qggk82xEXTcKjfOcETnQ2T/%EC%9A%B0%EC%A3%BC-Uzoo-%ED%99%94%EB%A9%B4-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0%3A1
+
+</br>
+
+
+
+### - 화면 플로우
+
+![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
+
+</br> 
+
+[상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
+
+ </br> 
+
+### - 테이블 설계
+
+![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
+
+</br>
+
+- [테이블 설계도 확대하기](https://drive.google.com/file/d/10NSzGyFc59dpKupwvLHp63_stMtM-lRN/view?usp=sharing)
+- 왜래키(Foreign Key)를 이용해 중복 데이터 방지하였습니다.
+- 실제 작업은 mySQL workbench에서 했습니다.
+
+</br>
+</br>
+
+### - API 설계서
+
+![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
+</br>
+
+- **헤더 부분에 RESTfulAPI의 형식에 맞추어 jwt인증토큰 처리를 하였습니다.**
+
+
+
+</br>
+
+
+
+- [상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
+
+ </br>
+
+### - AWS 클라우드 기반의 시스템 구축
+
+![](https://user-images.githubusercontent.com/102447800/191147040-a15ff2e0-28d1-4e0f-9f66-ac982ffdbf93.png)
+
+
+
+- Lambda, MySQL과 RDS, S3 기반의 Serverless 구축
+- API GateWay를 적용한 RESTfulAPI 기반 서버 개발 및 AWS CloudWatch를 활용하여 Logging
+- AWS의 인공지능 Rekognition을 활용한 서버와 안드로이드 앱 개발-- 사용한 프레임워크 및 라이브러리
+
+</br>
+
+### 📌 진행 중의 문제점 및 해결 방법
+
+> Rekognition
+
+- 서버 응답시간의 초과로 인해 API 작동이 멈추는 현상
+  -> AWS의 Lambda 제한시간을 늘려서 해결
+
+- 촬영 구도와 대상의 위치 따른 객체 탐지의 어려움
+  -> 추후 촬영 가이드라인을 제시하여 원활한 객체탐지 도움
+
+> Android LifeCycle
+
+- 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
+  -> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
+
+</br>
+
+
+
+### - 사용 언어
 <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/python-%20-brightgreen"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>  : flask를 기반으로 둔 API를 설계 
 
-</br>
-
 <a href="https://www.java.com/ko/">
     <img src="https://img.shields.io/badge/JAVA-%20-%23F7DF1E"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : 안드로이드 스튜디오에서 프론트엔드 개발
-    
-</br>
 </br>
 
-##  - 사용툴
-> ### 기본사용 툴
+###  - 사용 툴
+> #### 기본사용 툴
 
 <a href="https://code.visualstudio.com/">
     <img src="https://img.shields.io/badge/VisualStudioCode-ss%20-%23007ACC"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a> : flask를 이용하여 Restful API 구현에 사용했습니다.   
 </br>
-    
-    
-   
+
 <a href="https://developer.android.com/studio/intro">
     <img src="https://img.shields.io/badge/AndroidStudio-%20-%233DDC84"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -70,16 +178,11 @@
 </a> : 파이썬을 이용하여 코드 작성 및 테스트에 사용했습니다.  
 </br>
 
-<a href="https://www.erdcloud.com/">
-    <img src="https://img.shields.io/badge/ERD%20Cloud-%20-%239333EA"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a>: 테이블 기획에 사용했습니다.   
+
 </br>
 
-<a href="https://www.figma.com/">
-    <img src="https://img.shields.io/badge/Figma-%20-%23F24E1E"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a> :  아이콘 제작, 화면 기획서 등 디자인이 필요한 부분에 사용하였습니다.  
+
+
 </br>
 
 <a href="https://www.serverless.com/">
@@ -87,13 +190,13 @@
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>:  작업 후에 서버에 바로 배포할 수 있게 했습니다.  
 </br>
-</br>
 
-> ### 협업툴
+> #### 협업툴
+
 <a href="https://github.com/">
-    <img src="https://img.shields.io/badge/GitHub-%20-%23181717"
-        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a> : 두 개의 레파지토리로 나누어서, 각 API 관리와 안드로이드 스튜디오 개발 협업툴로 사용했습니다.  
+<img src="https://img.shields.io/badge/GitHub-%20-%23181717"
+   style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> : 코드의 공유 및 실시간 반영을 위해 GitHub의 Team Repository 활용하였습니다.
 </br>
 
  <a href="https://www.postman.com/">
@@ -102,22 +205,35 @@
 </a>
  : RestfulAPI 테스트 및 서버 적용 여부 테스트에 사용하였습니다.   
 </br>
- 
+
   <a href="https://slack.com/intl/ko-kr/">
     <img src="https://img.shields.io/badge/Slack-%20-%234A154B"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
-</a>  : 기본 소통, 파일 전달, 회의록 작성 등 기록용으로 사용했습니다.  
+</a>  : 진행상황 공유 및 회의진행, 전반적 소통을 위해 Slack 활용하였습니다. 
 </br>
-  
+
+<a href="https://www.figma.com/">
+    <img src="https://img.shields.io/badge/Figma-%20-%23F24E1E"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a> :  APP의 디자인 리소스 작업 및 공유를 위해 Figma 활용하였습니다.
+
+</br>
+
+<a href="https://www.erdcloud.com/">
+    <img src="https://img.shields.io/badge/ERD%20Cloud-%20-%239333EA"
+        style="height : auto; margin-left : 8px; margin-right : 8px;"/>
+</a>: DataBase의 테이블의 기록 및 공유를 위해 ERD Cloud 활용하였습니다.
+
+</br>
+
 <a href="https://www.google.com/drive/">
     <img src="https://img.shields.io/badge/Google%20Drive-%20-%234285F4"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
 </a>: API 명세서 작성, 대량 리소스 보관, 문서 작성 등에 사용하였습니다.  
 
 </br>
-</br>
 
- ##  - 프레임워크
+ ###  - 프레임워크 및 라이브러리
 <a href="https://flask.palletsprojects.com/en/2.2.x/">
     <img src="https://img.shields.io/badge/Flask-%20-%23000000"
         style="height : auto; margin-left : 8px; margin-right : 8px;"/>
@@ -126,7 +242,7 @@
 </br>
 </br>
 
-         
+
 ## - 참여 인원
 |  |  |  |
 |:--:|:--:|:--:|
@@ -137,50 +253,7 @@
 </br>
 </br>
 
-## - 프로젝트 기획 의도
 
-> 사용자가 스마트폰의 화면잠금 및 타이머를 활용하여, 학업의 도움과 시간측정을 제공합니다.
-
-잠시 핸드폰을 내려놓고 현실의 중요한 일에 집중해야 할 때,
-우주 : Uzoo 에서 동물을 키워 보세요. 시간이 지남에 따라, 동물은 점점 자랄것입니다. 
-
-하지만 스마트폰의 유혹에 견디지 못하고 우주 : Uzoo 앱을 나가버리면 동물이 병에 들어버릴 것입니다.
-동물을 키워나가며 얻게 되는 성취감과 책임감 덕분에, 핸드폰에서 점차 멀어지고 시간을 더욱 효율적으로 활용할 수 있습니다.
-
-![enter image description here](https://user-images.githubusercontent.com/102447800/190291635-e6cbda6c-e725-4915-be1b-5d4f9f2bcb4b.png)
-
-</br>
-</br>
-
-
-## - 화면 플로우
-![enter image description here](https://user-images.githubusercontent.com/102447800/190296180-539a7486-d57c-4dc7-8bb0-d50aeff223da.png)
-
-</br> 
-
-[상세 플로우 차트 보기 클릭](https://www.figma.com/file/NTCJN9dpGnpSRmIulOm2dn/%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8?node-id=0:1)
- </br> 
- </br> 
- 
-## - 테이블 설계
-![enter image description here](https://user-images.githubusercontent.com/102447800/190310435-d5416e7d-4a48-40bc-bda7-ecc000bd45ae.png)
-
-</br>
-
-[테이블 설계도 확대하기](https://drive.google.com/file/d/10NSzGyFc59dpKupwvLHp63_stMtM-lRN/view?usp=sharing)
-
-</br>
-</br>
-
-## - API 설계서
-![enter image description here](https://user-images.githubusercontent.com/102447800/190303299-22c5f106-d818-4d57-86e3-c1054316f809.png)
-</br>
-**헤더 부분에 restfulAPI의 형식에 맞추어 jwt인증토큰 처리를 하였습니다.**
-</br>
-</br>
-[상세 API 설계서 보기](https://docs.google.com/spreadsheets/d/1zu51hqyamtfsdBtHhGUQVd5dFlh0UWrh6zXra2bPybo/edit?usp=sharing)
-   
- </br>
  </br>
 
 ## - 화면구성
@@ -199,7 +272,7 @@
 |----|----|---|---|
 | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309730-f4fa5560-0da5-47bd-9e9a-eb33b9df0d5e.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309732-7e92a637-a751-4e80-aa0f-92c2ceb514bd.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190309734-8a4e8c42-09d1-405d-bf0e-a33468ba0fed.gif) | ![enter image description here](https://user-images.githubusercontent.com/105832457/190311167-2598c9f3-0751-4f86-b6bf-8672ffe4fa1f.gif)|
 |집중하기 적합한 환경인지 촬영하고 추가 코인을 얻어요!  | 친구의 성공/실패 및 랭킹을 확인해요!  | 현재 내가 어떤일에 집중하고 있는지 확인하고 Todo List를 작성해보아요! |내가 성공한 동물을 확인하고, 나의 집중시간을 그래프로 확인해요!|
-   
+
 </br>
 </br>
            
@@ -211,27 +284,12 @@
 - 안드로이드 수명주기 Life Cycle 활용해서 사용자의 어플 전환 추적
 
    
-</br>
-</br>
-
-## - 진행 중의 문제점 및 해결 방법
-
-> Rekognition
-
-- 서버 응답시간의 초과로 인해 API 작동이 멈추는 현상
- -> AWS의 Lambda 제한시간을 늘려서 해결
-
-- 촬영 구도와 대상의 위치 따른 객체 탐지의 어려움
- -> 추후 촬영 가이드라인을 제시하여 원활한 객체탐지 도움
-
-> Android LifeCycle
-
-- 스마트폰의 자체 화면 꺼짐현상과 사용자의 다른 활동으로 인한 onPause 작동이 동일
--> onPause 시에 상단의 화면이 무엇인지 감지하고 구분하는 작업을 추가하여 혼선 발생을 방지
 
 </br>
+</br>
+
+
 </br>
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=200&section=footer)
-
 
